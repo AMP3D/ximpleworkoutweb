@@ -2,7 +2,7 @@
 
 Track your workout routines as you do them!
 
-![Preview](https://raw.githubusercontent.com/AMP3D/workitweb/main/preview.png)
+![Preview](https://raw.githubusercontent.com/AMP3D/workitweb/main/preview.PNG)
 
 # Github Pages Link:
 
