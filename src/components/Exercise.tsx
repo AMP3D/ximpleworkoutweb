@@ -11,19 +11,20 @@ export type ExerciseProps = {
 };
 
 const Exercise: FC<ExerciseProps> = (props) => {
+  const { exercise, workoutName } = props;
   const { completedSetIds, setCompletedSetId } = useSetStore();
   const totalVolume = useMemo(
-    () => getTotalVolume(props.exercise.sets),
-    [props.exercise.sets]
+    () => getTotalVolume(exercise.sets),
+    [exercise.sets]
   );
 
   const musclesWorked = useMemo(
-    () => props.exercise.muscles?.join(", "),
-    [props.exercise.muscles]
+    () => exercise.muscles?.join(", "),
+    [exercise.muscles]
   );
 
-  const sets = props.exercise.sets.map((set, index) => {
-    const setId = convertToSetId(props.workoutName, props.exercise.name, index);
+  const sets = exercise.sets.map((set, index) => {
+    const setId = convertToSetId(workoutName, exercise.name, index);
     const isCompleted = !!completedSetIds[setId];
 
     const onComplete = () => {

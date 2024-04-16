@@ -10,24 +10,27 @@ export type CollapseProps = {
 };
 
 const Collapse: FC<CollapseProps> = (props) => {
+  const {
+    classNames,
+    children,
+    contentClassNames,
+    headerClassNames,
+    primaryHeaderText,
+    secondaryHeaderText,
+  } = props;
+
   return (
-    <div className={"collapse mb-2 collapse-plus " + props.classNames}>
+    <div className={"collapse mb-2 collapse-plus " + classNames}>
       <input type="checkbox" />
 
-      <div
-        className={
-          "collapse-title text-xl font-medium " + props.headerClassNames
-        }
-      >
-        <span>{props.primaryHeaderText}&nbsp;</span>
-        {props.secondaryHeaderText && (
-          <span className="text-accent">{props.secondaryHeaderText}</span>
+      <div className={"collapse-title text-xl font-medium " + headerClassNames}>
+        <span>{primaryHeaderText}&nbsp;</span>
+        {secondaryHeaderText && (
+          <span className="text-accent">{secondaryHeaderText}</span>
         )}
       </div>
 
-      <div className={"collapse-content " + props.contentClassNames}>
-        {props.children}
-      </div>
+      <div className={"collapse-content " + contentClassNames}>{children}</div>
     </div>
   );
 };

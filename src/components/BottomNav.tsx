@@ -9,9 +9,10 @@ export type BottomNavProps = {
 };
 
 const BottomNav: FC<BottomNavProps> = (props) => {
+  const { onReloadClick } = props;
   const [showReloadConfirm, setShowReloadConfirm] = useState(false);
   const onReloadConfirm = () => {
-    props.onReloadClick();
+    onReloadClick();
 
     setShowReloadConfirm(false);
   };

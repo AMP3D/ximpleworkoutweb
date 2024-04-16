@@ -8,14 +8,16 @@ export type WorkoutProps = {
 };
 
 const Workout: FC<WorkoutProps> = (props) => {
-  return props.workout.exercises.map((exercise, index) => (
+  const { workout } = props;
+
+  return workout.exercises.map((exercise, index) => (
     <Collapse
       classNames="bg-accent-content"
       key={`exercise-${index}`}
       primaryHeaderText="Exercise: "
       secondaryHeaderText={exercise.name}
     >
-      <Exercise exercise={exercise} workoutName={props.workout.name} />
+      <Exercise exercise={exercise} workoutName={workout.name} />
     </Collapse>
   ));
 };

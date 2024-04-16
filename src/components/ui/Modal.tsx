@@ -11,7 +11,16 @@ export type ModalProps = {
 };
 
 const Modal: FC<ModalProps> = (props) => {
-  const modalId = props.modalId || `modal-${props.title}`;
+  const {
+    children,
+    isConfirmModal,
+    onModalClose,
+    onModalConfirm,
+    showModal,
+    title,
+  } = props;
+
+  const modalId = props.modalId || `modal-${title}`;
   const modal = document?.getElementById(modalId) as HTMLFormElement;
   const closeBtnRef = useRef<HTMLButtonElement>(null);
 
@@ -19,7 +28,7 @@ const Modal: FC<ModalProps> = (props) => {
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        props.onModalClose();
+        onModalClose();
       }
     };
     window.addEventListener("keydown", handleEsc);
@@ -27,37 +36,37 @@ const Modal: FC<ModalProps> = (props) => {
     return () => {
       window.removeEventListener("keydown", handleEsc);
     };
-  }, []);
+  }, [onModalClose]);
 
   // Handle show/hide
   useEffect(() => {
-    if (props.showModal) {
+    if (showModal) {
       modal?.showModal();
     } else {
       closeBtnRef.current?.click();
     }
-  }, [props.showModal]);
+  }, [modal, showModal]);
 
   return (
     <>
       <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">{props.title}</h3>
-          <div className="py-4">{props.children}</div>
+          <h3 className="font-bold text-lg">{title}</h3>
+          <div className="py-4">{children}</div>
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              {props.isConfirmModal && (
+              {isConfirmModal && (
                 <button
                   className="btn btn-accent mx-14"
-                  onClick={props.onModalConfirm}
+                  onClick={onModalConfirm}
                 >
                   Confirm
                 </button>
               )}
               <button
                 className="btn btn-secondary"
-                onClick={props.onModalClose}
+                onClick={onModalClose}
                 ref={closeBtnRef}
               >
                 Close

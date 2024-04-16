@@ -10,20 +10,21 @@ export type SetProps = {
 };
 
 const Set: FC<SetProps> = (props) => {
-  const weights = useMemo(() => props.set.weights.join(", "), [props.set]);
-  const totalWeight = useMemo(() => getTotalWeight(props.set), [props.set]);
+  const { isCompleted, onComplete, set, setIndex } = props;
+  const weights = useMemo(() => set.weights.join(", "), [set]);
+  const totalWeight = useMemo(() => getTotalWeight(set), [set]);
 
   return (
     <div className="rounded-box px-3 py-1 text-xs">
       <div className="grid grid-cols-2">
         <div>
           <span>Set: </span>
-          <span className="text-accent font-bold">{props.setIndex + 1}</span>
+          <span className="text-accent font-bold">{setIndex + 1}</span>
         </div>
 
         <div>
           <span>Reps: </span>
-          <span className="text-secondary font-bold">{props.set.reps}</span>
+          <span className="text-secondary font-bold">{set.reps}</span>
         </div>
       </div>
 
@@ -41,10 +42,10 @@ const Set: FC<SetProps> = (props) => {
         </div>
       )}
 
-      {!!props.set.notes && (
+      {!!set.notes && (
         <div>
           <span>Notes: </span>
-          <span className="text-secondary">{props.set.notes}</span>
+          <span className="text-secondary">{set.notes}</span>
         </div>
       )}
 
@@ -53,10 +54,10 @@ const Set: FC<SetProps> = (props) => {
           <label className="label cursor-pointer">
             <span className="label-text pr-9">Completed:</span>
             <input
-              defaultChecked={props.isCompleted}
+              defaultChecked={isCompleted}
               type="checkbox"
               className="checkbox checkbox-success checkbox-lg"
-              onChange={() => props.onComplete(!props.isCompleted)}
+              onChange={() => onComplete(!isCompleted)}
             />
           </label>
         </div>
