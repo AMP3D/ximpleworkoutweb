@@ -32,7 +32,7 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
       setCompletedSetId(setId, !isCompleted);
     };
 
-    const bgColor = isCompleted ? "bg-success-content" : "bg-secondary-content";
+    const bgColor = isCompleted ? "bg-teal-950" : "bg-secondary-content";
 
     return (
       <div

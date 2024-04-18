@@ -19,7 +19,7 @@ const Workout: FC<WorkoutProps> = (props) => {
       return !!completedSetIds[setId];
     });
 
-    const className = exerciseComplete ? "bg-green-900" : "bg-accent-content";
+    const className = exerciseComplete ? "bg-teal-950" : "bg-accent-content";
 
     return (
       <Collapse
