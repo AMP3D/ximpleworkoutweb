@@ -301,6 +301,22 @@
       "name": "Push",
       "exercises": [
         {
+          "name": "Bird-dog",
+          "muscles": ["Abs"],
+          "sets": [
+            {
+              "weights": [0],
+              "reps": 10,
+              "notes": "Per side"
+            },
+            {
+              "weights": [0],
+              "reps": 10,
+              "notes": "Per side"
+            }
+          ]
+        },
+        {
           "name": "Decline Press",
           "muscles": ["Chest"],
           "sets": [
@@ -324,17 +340,6 @@
             {
               "weights": [5, 10, 10, 10, 2.5],
               "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Bird-dog",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 10,
-              "notes": "Per side"
             }
           ]
         },
@@ -448,7 +453,7 @@
           "muscles": ["Lateral Head Tricep"],
           "sets": [
             {
-              "weights": [5, 7.5, 10],
+              "weights": [5, 10, 10],
               "reps": 20,
               "notes": "Warm-up set"
             },
@@ -519,19 +524,19 @@
           "muscles": ["Long Head Tricep"],
           "sets": [
             {
-              "weights": [5, 10],
+              "weights": [5, 10, 2.5],
               "reps": 12
             },
             {
-              "weights": [5, 10],
+              "weights": [5, 10, 2.5],
               "reps": 12
             },
             {
-              "weights": [5, 10],
+              "weights": [5, 10, 2.5],
               "reps": 12
             },
             {
-              "weights": [5, 10],
+              "weights": [5, 10, 2.5],
               "reps": 12
             }
           ]
@@ -541,6 +546,44 @@
     {
       "name": "Combo",
       "exercises": [
+        {
+          "name": "Bird-dog",
+          "muscles": ["Abs"],
+          "sets": [
+            {
+              "weights": [0],
+              "reps": 10
+            }
+          ]
+        },
+        {
+          "name": "Ab Roller",
+          "muscles": ["Abs"],
+          "sets": [
+            {
+              "weights": [0],
+              "reps": 12
+            },
+            {
+              "weights": [0],
+              "reps": 12
+            },
+            {
+              "weights": [0],
+              "reps": 12
+            }
+          ]
+        },
+        {
+          "name": "Knee Crunch",
+          "muscles": ["Abs"],
+          "sets": [
+            {
+              "weights": [0],
+              "reps": 15
+            }
+          ]
+        },
         {
           "name": "Decline Flies + Super-set Flat Flies",
           "muscles": ["Chest"],
@@ -592,6 +635,157 @@
             {
               "weights": [5, 10, 10, 10, 2.5],
               "reps": 10
+            }
+          ]
+        },
+        {
+          "name": "Ab Trunk Rotation",
+          "muscles": ["Abs"],
+          "sets": [
+            {
+              "weights": [5, 10, 7.5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 7.5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 7.5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 7.5],
+              "reps": 10
+            }
+          ]
+        },
+        {
+          "name": "Lateral Raise",
+          "muscles": ["Delts", "Serratus"],
+          "sets": [
+            {
+              "weights": [5, 10, 7.5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 7.5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 7.5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 7.5],
+              "reps": 10
+            }
+          ]
+        },
+        {
+          "name": "Overhead Tricep Extension",
+          "muscles": ["Long Head Tricep"],
+          "sets": [
+            {
+              "weights": [5, 10, 7.5, 5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 7.5, 5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 7.5, 5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 7.5, 5],
+              "reps": 10
+            }
+          ]
+        },
+        {
+          "name": "Rows",
+          "muscles": ["Lats", "Traps"],
+          "sets": [
+            {
+              "weights": [5, 10, 10, 10],
+              "reps": 20,
+              "notes": "Warm-up set"
+            },
+            {
+              "weights": [5, 10, 10, 10, 7.5, 2.5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 10, 10, 7.5, 2.5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 10, 10, 7.5, 2.5],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 10, 10, 7.5, 2.5],
+              "reps": 10
+            }
+          ]
+        },
+        {
+          "name": "Sideways Standing Bicep Curl",
+          "muscles": ["Biceps Brachii"],
+          "sets": [
+            {
+              "weights": [5, 10, 5],
+              "reps": 15,
+              "notes": "Warm-up set"
+            },
+            {
+              "weights": [5, 10, 5, 10],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 5, 10],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 5, 10],
+              "reps": 10
+            },
+            {
+              "weights": [5, 10, 5, 10],
+              "reps": 10
+            }
+          ]
+        },
+        {
+          "name": "21s Preacher Curl",
+          "muscles": ["Brachialis", "Short-head Biceps"],
+          "sets": [
+            {
+              "weights": [5, 10, 5],
+              "reps": 21,
+              "notes": "7 full reps, 7 partial, 7 full"
+            },
+            {
+              "weights": [5, 10, 5],
+              "reps": 21,
+              "notes": "7 full reps, 7 partial, 7 full"
+            },
+            {
+              "weights": [5, 10, 5],
+              "reps": 21,
+              "notes": "7 full reps, 7 partial, 7 full"
+            }
+          ]
+        },
+        {
+          "name": "Arm Wrestle Curl",
+          "muscles": ["Pronator"],
+          "sets": [
+            {
+              "weights": [5, 10],
+              "reps": 15
             }
           ]
         }

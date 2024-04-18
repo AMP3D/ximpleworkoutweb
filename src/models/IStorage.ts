@@ -1,3 +1,3 @@
 export interface IStorage {
-    storageItems: {[key: string]: boolean};
+  storageItems: { [key: string]: boolean };
 }

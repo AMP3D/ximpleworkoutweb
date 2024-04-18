@@ -4,13 +4,14 @@ import Set from "./Set";
 import { convertToSetId } from "../helpers/stringHelper";
 import { getTotalVolume } from "../helpers/weightHelper";
 import { useSetStore } from "../store/setStore";
+import React from "react";
 
 export type ExerciseProps = {
   exercise: IExercise;
   workoutName: string;
 };
 
-const Exercise: FC<ExerciseProps> = (props) => {
+const ExerciseComponent: FC<ExerciseProps> = (props) => {
   const { exercise, workoutName } = props;
   const { completedSetIds, setCompletedSetId } = useSetStore();
   const totalVolume = useMemo(
@@ -69,4 +70,5 @@ const Exercise: FC<ExerciseProps> = (props) => {
   );
 };
 
+const Exercise = React.memo(ExerciseComponent);
 export default Exercise;

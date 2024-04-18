@@ -1,2 +1,3 @@
-export * from './stringHelper';
-export * from './weightHelper';
+export * from "./fileHelper";
+export * from "./stringHelper";
+export * from "./weightHelper";
