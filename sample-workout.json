@@ -595,19 +595,23 @@
             },
             {
               "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
+              "reps": 20,
+              "notes": "10 reps per exercise"
             },
             {
               "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
+              "reps": 20,
+              "notes": "10 reps per exercise"
             },
             {
               "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
+              "reps": 20,
+              "notes": "10 reps per exercise"
             },
             {
               "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
+              "reps": 20,
+              "notes": "10 reps per exercise"
             }
           ]
         },
