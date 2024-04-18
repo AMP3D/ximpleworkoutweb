@@ -10,13 +10,13 @@ export type AlertProps = {
 const Alert: FC<AlertProps> = (props) => {
   return (
     <div role="alert" className="alert alert-error justify-items-start">
-      <h3 className="font-bold">{props.title}</h3>
-      <div className="grid grid-cols-2">
-        <div className="pr-1">
+      <h3 className="font-bold">
+        <span className="pr-1">
           <FontAwesomeIcon icon={faExclamationCircle} />
-        </div>
-        <div>{props.children}</div>
-      </div>
+        </span>
+        {props.title}
+      </h3>
+      <div className="text-start">{props.children}</div>
     </div>
   );
 };

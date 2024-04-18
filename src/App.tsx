@@ -9,7 +9,8 @@ import { useErrorStore } from "./store/errorStore";
 import { importSampleFile } from "./helpers";
 
 const App: FC = () => {
-  const { addError } = useErrorStore();
+  const { addError, errors } = useErrorStore();
+
   const { workouts, addWorkout, clearWorkouts } = useWorkoutStore(
     useShallow((state) => ({
       addWorkout: state.addWorkout,
@@ -26,15 +27,16 @@ const App: FC = () => {
 
       const fileWorkouts = importSampleFile();
       if (fileWorkouts.errors?.length) {
-        //fileWorkouts.errors.forEach((error) => addError(error));
-        addError(fileWorkouts.errors[0]);
+        fileWorkouts.errors.forEach((error) => addError(error));
       } else {
         fileWorkouts.workouts?.forEach((workout) => addWorkout(workout));
       }
     }
   };
 
-  hydrateStorage();
+  if (!errors?.length) {
+    hydrateStorage();
+  }
 
   return (
     <div className="m-2">
@@ -45,7 +47,7 @@ const App: FC = () => {
       <BottomNav onReloadClick={() => hydrateStorage(true)} />
 
       <div className="absolute inset-x-2 bottom-20">
-        <Errors />
+        <Errors errors={errors} />
       </div>
     </div>
   );

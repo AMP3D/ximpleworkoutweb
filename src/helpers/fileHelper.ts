@@ -16,7 +16,7 @@ export const parseWorkouts = (workouts: IWorkout[]): ImportResults => {
     } else {
       workoutIds.set(workoutId, workoutIdCount++);
       errors.push(
-        `Workout with name ${workoutId} has ${workoutIdCount} duplicates. Workout names must be unique.`
+        `Workout with name "${workoutId}" has duplicates. Workout names must be unique.`
       );
     }
 
@@ -30,7 +30,7 @@ export const parseWorkouts = (workouts: IWorkout[]): ImportResults => {
       } else {
         exerciseIds.set(exerciseId, exerciseIdCount++);
         errors.push(
-          `Workout with name ${workoutId} has ${exerciseIdCount} duplicates for exercise with name ${exerciseId}. Exercise names must be unique within a workout.`
+          `Workout with name "${workoutId}" has duplicates for exercise with name "${exerciseId}". Exercise names must be unique within a workout.`
         );
       }
     });
