@@ -4,6 +4,7 @@ import Exercise from "./Exercise";
 import Collapse from "./ui/Collapse";
 import { useSetStore } from "../store/setStore";
 import { convertToSetId } from "../helpers/stringHelper";
+import AddButton from "./ui/AddButton";
 
 export type WorkoutProps = {
   workout: IWorkout;
@@ -19,7 +20,9 @@ const Workout: FC<WorkoutProps> = (props) => {
       return !!completedSetIds[setId];
     });
 
-    const className = exerciseComplete ? "bg-teal-950" : "bg-accent-content";
+    const className = exerciseComplete
+      ? "bg-success line-through italic"
+      : "bg-secondary";
 
     return (
       <Collapse
@@ -33,7 +36,16 @@ const Workout: FC<WorkoutProps> = (props) => {
     );
   });
 
-  return exercises;
+  return (
+    <>
+      {exercises}{" "}
+      <AddButton
+        onAddClick={() => {}}
+        buttonText="Add Exercise"
+        backgroundClassName="bg-secondary"
+      />
+    </>
+  );
 };
 
 export default Workout;

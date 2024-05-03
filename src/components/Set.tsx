@@ -19,44 +19,47 @@ const Set: FC<SetProps> = (props) => {
       <div className="grid grid-cols-2">
         <div>
           <span>Set: </span>
-          <span className="text-accent font-bold">{setIndex + 1}</span>
+          <span className="badge badge-primary font-bold">{setIndex + 1}</span>
         </div>
 
         <div>
           <span>Reps: </span>
-          <span className="text-secondary font-bold">{set.reps}</span>
+          <span className="badge badge-primary font-bold">{set.reps}</span>
         </div>
       </div>
 
       {!!totalWeight && (
         <div className="grid grid-cols-2 my-2">
           <div>
-            <span>Total Weight (lb): </span>
-            <span className="text-secondary">{totalWeight}</span>
+            <div>Total Weight (lb): </div>
+            <div className="badge badge-neutral font-bold mt-1">
+              {totalWeight}
+            </div>
           </div>
 
           <div>
-            <span>Weights (lb): </span>
-            <span className="text-secondary">{weights}</span>
+            <div>Weights (lb): </div>
+            <div className="text-base-content mt-1">{weights}</div>
           </div>
         </div>
       )}
 
       {!!set.notes && (
         <div>
-          <span>Notes: </span>
-          <span className="text-secondary">{set.notes}</span>
+          <div>Notes: </div>
+          <div className="text-base-content mt-1">{set.notes}</div>
         </div>
       )}
 
-      <div>
-        <div className="form-control items-end">
+      <div className="grid grid-cols-2">
+        <div></div>
+        <div className="form-control">
           <label className="label cursor-pointer">
-            <span className="label-text pr-9">Completed:</span>
+            <span>Completed:</span>
             <input
               defaultChecked={isCompleted}
               type="checkbox"
-              className="checkbox checkbox-success checkbox-lg"
+              className="checkbox checkbox-accent checkbox-lg"
               onChange={() => onComplete(!isCompleted)}
             />
           </label>

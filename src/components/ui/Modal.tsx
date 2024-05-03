@@ -1,28 +1,46 @@
 import { FC, useEffect, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export type ModalProps = {
   children: React.ReactNode;
-  isConfirmModal?: boolean;
+  closeText?: React.ReactNode;
+  confirmText?: React.ReactNode;
+  disableConfirmButton?: boolean;
   modalId?: string;
   onModalClose: () => void;
   onModalConfirm?: () => void;
-  showModal: boolean;
+  preventDefault?: boolean;
+  showFromBottom?: boolean;
+  showModal?: boolean;
   title: string;
 };
 
 const Modal: FC<ModalProps> = (props) => {
   const {
     children,
-    isConfirmModal,
+    closeText,
+    confirmText,
+    disableConfirmButton,
     onModalClose,
     onModalConfirm,
-    showModal,
+    preventDefault = false,
+    showModal = true,
+    showFromBottom = true,
     title,
   } = props;
 
   const modalId = props.modalId || `modal-${title}`;
-  const modal = document?.getElementById(modalId) as HTMLFormElement;
   const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const modalRef = useRef<HTMLDialogElement>(null);
+
+  const fireEvent = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    callBack: (() => void) | undefined
+  ) => {
+    preventDefault && event.preventDefault();
+    callBack !== undefined && callBack();
+  };
 
   // Handle escape key
   useEffect(() => {
@@ -40,36 +58,59 @@ const Modal: FC<ModalProps> = (props) => {
 
   // Handle show/hide
   useEffect(() => {
-    if (showModal) {
-      modal?.showModal();
+    if (modalRef?.current && showModal) {
+      modalRef?.current?.showModal();
     } else {
       closeBtnRef.current?.click();
     }
-  }, [modal, showModal]);
+  }, [modalRef, showModal]);
+
+  const showFromClass = showFromBottom ? "modal-bottom" : "";
 
   return (
     <>
-      <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
+      <dialog
+        ref={modalRef}
+        id={modalId}
+        className={`modal sm:modal-middle text-white ${showFromClass}`}
+      >
+        <div className="modal-box bg-primary">
           <h3 className="font-bold text-lg">{title}</h3>
           <div className="py-4">{children}</div>
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
-              {isConfirmModal && (
+
+              {
                 <button
-                  className="btn btn-accent mx-14"
-                  onClick={onModalConfirm}
+                  className="btn btn-success mx-9 text-white"
+                  disabled={disableConfirmButton}
+                  onClick={(event) => fireEvent(event, onModalConfirm)}
                 >
-                  Confirm
+                  {confirmText ? (
+                    confirmText
+                  ) : (
+                    <>
+                      <FontAwesomeIcon icon={faCheck} />
+                      Confirm
+                    </>
+                  )}
                 </button>
-              )}
+              }
+
               <button
-                className="btn btn-secondary"
-                onClick={onModalClose}
+                className="btn btn-secondary text-white"
+                onClick={(event) => fireEvent(event, onModalClose)}
                 ref={closeBtnRef}
               >
-                Close
+                {closeText ? (
+                  closeText
+                ) : (
+                  <>
+                    <FontAwesomeIcon icon={faClose} />
+                    Close
+                  </>
+                )}
               </button>
             </form>
           </div>

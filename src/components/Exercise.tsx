@@ -5,6 +5,7 @@ import { convertToSetId } from "../helpers/stringHelper";
 import { getTotalVolume } from "../helpers/weightHelper";
 import { useSetStore } from "../store/setStore";
 import React from "react";
+import AddButton from "./ui/AddButton";
 
 export type ExerciseProps = {
   exercise: IExercise;
@@ -14,6 +15,7 @@ export type ExerciseProps = {
 const ExerciseComponent: FC<ExerciseProps> = (props) => {
   const { exercise, workoutName } = props;
   const { completedSetIds, setCompletedSetId } = useSetStore();
+
   const totalVolume = useMemo(
     () => getTotalVolume(exercise.sets),
     [exercise.sets]
@@ -32,11 +34,13 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
       setCompletedSetId(setId, !isCompleted);
     };
 
-    const bgColor = isCompleted ? "bg-teal-950" : "bg-secondary-content";
+    const bgColor = isCompleted
+      ? "bg-success line-through italic"
+      : "bg-secondary";
 
     return (
       <div
-        className={`${bgColor} rounded-box px-3 py-1 my-2`}
+        className={`${bgColor} rounded-box px-3 py-1 my-2 border border-success`}
         key={`set-${index}`}
       >
         <Set
@@ -54,18 +58,24 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
       {!!totalVolume && (
         <div className="text-xs text-end">
           <span>Muscles: </span>
-          <span className="text-secondary">{musclesWorked}</span>
+          <span className="text-base-content">{musclesWorked}</span>
         </div>
       )}
 
       {!!totalVolume && (
-        <div className="text-xs text-end">
+        <div className="text-xs text-end mt-1">
           <span>Total Volume (lb): </span>
-          <span className="text-secondary">{totalVolume}</span>
+          <span className="badge badge-neutral font-bold">{totalVolume}</span>
         </div>
       )}
 
       {sets}
+
+      <AddButton
+        onAddClick={() => {}}
+        buttonText="Add Set"
+        backgroundClassName="bg-secondary-content"
+      />
     </>
   );
 };

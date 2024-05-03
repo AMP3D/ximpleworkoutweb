@@ -1,5 +1,4 @@
 import "./App.css";
-import BottomNav from "./components/BottomNav";
 import Workouts from "./components/Workouts";
 import { FC } from "react";
 import { useWorkoutStore } from "./store/workoutStore";
@@ -7,9 +6,10 @@ import { useShallow } from "zustand/react/shallow";
 import Errors from "./components/Errors";
 import { useErrorStore } from "./store/errorStore";
 import { importSampleFile } from "./helpers";
+import NavBar from "./components/NavBar";
 
 const App: FC = () => {
-  const { addError, errors } = useErrorStore();
+  const { addError, errors, clearErrors } = useErrorStore();
 
   const { workouts, addWorkout, clearWorkouts } = useWorkoutStore(
     useShallow((state) => ({
@@ -25,11 +25,11 @@ const App: FC = () => {
         clearWorkouts();
       }
 
-      const fileWorkouts = importSampleFile();
-      if (fileWorkouts.errors?.length) {
-        fileWorkouts.errors.forEach((error) => addError(error));
+      const result = importSampleFile();
+      if (result.errors?.length) {
+        result.errors.forEach((error) => addError(error));
       } else {
-        fileWorkouts.workouts?.forEach((workout) => addWorkout(workout));
+        result.workouts?.forEach((workout) => addWorkout(workout));
       }
     }
   };
@@ -39,17 +39,19 @@ const App: FC = () => {
   }
 
   return (
-    <div className="m-2">
-      <div className="mb-9 pb-9">
-        <Workouts />
-      </div>
+    <>
+      <NavBar onReloadClick={() => hydrateStorage(true)} />
 
-      <BottomNav onReloadClick={() => hydrateStorage(true)} />
+      <div className="m-2 text-white">
+        <div className="mb-9 pb-9">
+          <Workouts />
+        </div>
 
-      <div className="absolute inset-x-2 bottom-20">
-        <Errors errors={errors} />
+        <div className="absolute inset-x-2 bottom-20">
+          <Errors errors={errors} onDismiss={clearErrors} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ export type CollapseProps = {
   children: React.ReactNode;
   contentClassNames?: string;
   headerClassNames?: string;
-  primaryHeaderText: string;
+  primaryHeaderText: React.ReactNode;
   secondaryHeaderText?: string;
 };
 
@@ -23,7 +23,7 @@ const Collapse: FC<CollapseProps> = (props) => {
     <div className={"collapse mb-2 collapse-plus " + classNames}>
       <input type="checkbox" />
 
-      <div className={"collapse-title text-xl font-medium " + headerClassNames}>
+      <div className={"collapse-title text-l font-medium " + headerClassNames}>
         <span>{primaryHeaderText}&nbsp;</span>
         {secondaryHeaderText && (
           <span className="text-accent">{secondaryHeaderText}</span>
