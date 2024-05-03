@@ -44,3 +44,13 @@ export const importSampleFile = (): ImportResults => {
 
   return parseWorkouts(workouts);
 };
+
+export function convertToBlob<T>(obj: T) {
+  const str = JSON.stringify(obj, undefined, 2);
+  const bytes = new TextEncoder().encode(str);
+  const blob = new Blob([bytes], {
+    type: "application/json;charset=utf-8",
+  });
+
+  return blob;
+}
