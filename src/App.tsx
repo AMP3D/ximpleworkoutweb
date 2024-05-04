@@ -7,9 +7,11 @@ import Errors from "./components/Errors";
 import { useErrorStore } from "./store/errorStore";
 import { importSampleFile } from "./helpers";
 import NavBar from "./components/NavBar";
+import { useAppStore } from "./store/appStore";
 
 const App: FC = () => {
   const { addError, errors, clearErrors } = useErrorStore();
+  const { hasHydrated, setHasHydrated } = useAppStore();
 
   const { workouts, addWorkout, clearWorkouts } = useWorkoutStore(
     useShallow((state) => ({
@@ -20,7 +22,8 @@ const App: FC = () => {
   );
 
   const hydrateStorage = (reload: boolean = false) => {
-    if (reload || !workouts?.length) {
+    // Only hydrate if user initiated or it's the first time and there's no workouts defined
+    if (reload || (!hasHydrated && !workouts?.length)) {
       if (reload) {
         clearWorkouts();
       }
@@ -31,6 +34,8 @@ const App: FC = () => {
       } else {
         result.workouts?.forEach((workout) => addWorkout(workout));
       }
+
+      setHasHydrated(true);
     }
   };
 

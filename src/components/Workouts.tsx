@@ -7,12 +7,12 @@ import AddWorkout from "./AddWorkout";
 import { IWorkout } from "../models";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import Modal from "./ui/Modal";
+import RemoveWorkout from "./RemoveWorkout";
 
 const Workouts: FC = () => {
   const [showAddWorkout, setShowAddWorkout] = useState(false);
-  const [removeWorkoutName, setRemoveWorkoutName] = useState<string>("");
-  const { addWorkout, removeWorkout, workouts } = useWorkoutStore();
+  const [removeWorkoutName, setRemoveWorkoutName] = useState<string>();
+  const { addWorkout, workouts } = useWorkoutStore();
 
   const onAddWorkout = (workoutName: string) => {
     setShowAddWorkout(false);
@@ -21,11 +21,6 @@ const Workouts: FC = () => {
       name: workoutName,
       exercises: [],
     } as IWorkout);
-  };
-
-  const onRemoveWorkoutConfirm = () => {
-    removeWorkout(removeWorkoutName);
-    setRemoveWorkoutName("");
   };
 
   const onRemoveWorkout = (workoutName: string) => {
@@ -68,13 +63,10 @@ const Workouts: FC = () => {
       )}
 
       {removeWorkoutName && (
-        <Modal
-          onModalConfirm={onRemoveWorkoutConfirm}
-          onModalClose={() => setRemoveWorkoutName("")}
-          title="Confirm"
-        >
-          <div>Are you sure you want to remove this workout? </div>
-        </Modal>
+        <RemoveWorkout
+          onClose={() => setRemoveWorkoutName("")}
+          workoutName={removeWorkoutName}
+        />
       )}
 
       <AddButton

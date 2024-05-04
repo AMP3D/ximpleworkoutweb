@@ -29,7 +29,7 @@ const SampleFileReloadModal: FC<SampleFileReloadModalProps> = (
       <div className="my-5">
         <Alert
           alertType="warning"
-          title="This will clear all work-out definitions and set them to the sample file!"
+          title="This will clear all workout definitions and set them to the sample file!"
         />
       </div>
     </Modal>
