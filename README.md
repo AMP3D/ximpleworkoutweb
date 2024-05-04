@@ -8,4 +8,4 @@ Track your workout routines as you do them!
 
 Designed for mobile browsers, but compatible with any platform.
 
-![Preview](https://raw.githubusercontent.com/AMP3D/workitweb/main/src/assets/preview.PNG)
+![Preview](https://raw.githubusercontent.com/AMP3D/workitweb/main/src/assets/preview-05032024_1854.PNG)
