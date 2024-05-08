@@ -6,7 +6,7 @@ type AppStore = {
   setHasHydrated: (hasHydrated: boolean) => void;
 };
 
-const STORAGE_KEY = "workit-workout-tracker-web-storage-app";
+const STORAGE_KEY = "ximple-workout-tracker-web-storage-app";
 export const useAppStore = create<AppStore>()(
   persist(
     (set) => ({

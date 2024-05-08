@@ -7,3 +7,6 @@ export const convertToSetId = (
 
   return `${workoutName}-${exerciseName}-${setIndex + 1}-${currentDate}`;
 };
+
+export const getTrimmedLowercase = (text: string) =>
+  text?.trim()?.toLocaleLowerCase();

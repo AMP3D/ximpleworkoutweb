@@ -8,7 +8,7 @@ type SetStore = {
   setCompletedSetId: (setId: string, isCompleted: boolean) => void;
 };
 
-const STORAGE_KEY = "workit-workout-tracker-web-storage-sets";
+const STORAGE_KEY = "ximple-workout-tracker-web-storage-sets";
 export const useSetStore = create<SetStore>()(
   persist(
     (set, get) => ({

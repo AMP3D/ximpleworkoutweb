@@ -21,7 +21,7 @@ const ExportFileModal: FC<ExportFileModalProps> = (
       const date = new Date();
       const fileDate = `${date.getMonth()}-${date.getDay()}-${date.getFullYear()}-${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
 
-      const file = new File([workoutsBlob], `workit-export-${fileDate}.json`, {
+      const file = new File([workoutsBlob], `ximple-export-${fileDate}.json`, {
         type: "text/plain;charset=utf-8",
       });
 

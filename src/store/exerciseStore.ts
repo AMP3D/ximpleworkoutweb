@@ -8,7 +8,7 @@ type ExerciseStore = {
   clearExercises: () => void;
 };
 
-const STORAGE_KEY = "workit-workout-tracker-web-storage-exercises";
+const STORAGE_KEY = "ximple-workout-tracker-web-storage-exercises";
 export const useExerciseStore = create<ExerciseStore>()(
   persist(
     (set, get) => ({

@@ -1,11 +1,13 @@
 import { IExercise } from "../models";
-import { FC, useMemo } from "react";
+import { FC, useMemo, useState } from "react";
 import Set from "./Set";
 import { convertToSetId } from "../helpers/stringHelper";
 import { getTotalVolume } from "../helpers/weightHelper";
 import { useSetStore } from "../store/setStore";
 import React from "react";
 import AddButton from "./ui/AddButton";
+import AddSet from "./AddSet";
+import RemoveSet from "./RemoveSet";
 
 export type ExerciseProps = {
   exercise: IExercise;
@@ -15,6 +17,13 @@ export type ExerciseProps = {
 const ExerciseComponent: FC<ExerciseProps> = (props) => {
   const { exercise, workoutName } = props;
   const { completedSetIds, setCompletedSetId } = useSetStore();
+
+  const [removeSetIndex, setRemoveSetIndex] = useState<number>();
+  const [showAddSet, setShowAddSet] = useState(false);
+
+  const onRemoveSet = (setIndex: number) => {
+    setRemoveSetIndex(setIndex);
+  };
 
   const totalVolume = useMemo(
     () => getTotalVolume(exercise.sets),
@@ -48,6 +57,7 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
           setIndex={index}
           isCompleted={isCompleted}
           onComplete={onComplete}
+          onRemoveSet={onRemoveSet}
         />
       </div>
     );
@@ -55,6 +65,23 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
 
   return (
     <>
+      {showAddSet && (
+        <AddSet
+          onClose={() => setShowAddSet(false)}
+          exerciseName={exercise?.name}
+          workoutName={workoutName}
+        />
+      )}
+
+      {removeSetIndex !== undefined && (
+        <RemoveSet
+          onClose={() => setRemoveSetIndex(undefined)}
+          exerciseName={exercise?.name}
+          setIndex={removeSetIndex}
+          workoutName={workoutName}
+        />
+      )}
+
       {!!totalVolume && (
         <div className="text-xs text-end">
           <span>Muscles: </span>
@@ -72,7 +99,7 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
       {sets}
 
       <AddButton
-        onAddClick={() => {}}
+        onAddClick={() => setShowAddSet(true)}
         buttonText="Add Set"
         backgroundClassName="bg-secondary-content"
       />

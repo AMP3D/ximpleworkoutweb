@@ -2,14 +2,25 @@ import { FC, useState } from "react";
 import Modal from "./ui/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useWorkoutStore } from "../store/workoutStore";
+import { IWorkout } from "../models";
 
 export type AddWorkoutProps = {
-  onAdd: (workoutName: string) => void;
-  onCancel: () => void;
+  onClose: () => void;
 };
 
 const AddWorkout: FC<AddWorkoutProps> = (props: AddWorkoutProps) => {
   const [workoutName, setWorkoutName] = useState("");
+  const { addWorkout } = useWorkoutStore();
+
+  const onAddWorkout = () => {
+    addWorkout({
+      name: workoutName,
+      exercises: [],
+    } as IWorkout);
+
+    props.onClose();
+  };
 
   const closeText = (
     <>
@@ -29,8 +40,9 @@ const AddWorkout: FC<AddWorkoutProps> = (props: AddWorkoutProps) => {
     <Modal
       closeText={closeText}
       confirmText={confirmText}
-      onModalClose={props.onCancel}
-      onModalConfirm={() => props.onAdd(workoutName)}
+      disableConfirmButton={!workoutName?.length}
+      onModalClose={props.onClose}
+      onModalConfirm={onAddWorkout}
       preventDefault={true}
       showFromBottom={true}
       title="Add Workout"

@@ -1,17 +1,20 @@
 import { getTotalWeight } from "../helpers/weightHelper";
 import { ISet } from "../models";
 import { FC, useMemo } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export type SetProps = {
   isCompleted: boolean;
   onComplete: (isCompleted: boolean) => void;
+  onRemoveSet: (setIndex: number) => void;
   set: ISet;
   setIndex: number;
 };
 
 const Set: FC<SetProps> = (props) => {
-  const { isCompleted, onComplete, set, setIndex } = props;
-  const weights = useMemo(() => set.weights.join(", "), [set]);
+  const { isCompleted, onComplete, onRemoveSet, set, setIndex } = props;
+  const weights = useMemo(() => set.weights?.join(", "), [set]);
   const totalWeight = useMemo(() => getTotalWeight(set), [set]);
 
   return (
@@ -52,7 +55,17 @@ const Set: FC<SetProps> = (props) => {
       )}
 
       <div className="grid grid-cols-2">
-        <div></div>
+        <div className="mt-2">
+          <span className="z-10 relative">
+            <button
+              className="btn btn-primary btn-sm text-white"
+              onClick={() => onRemoveSet(setIndex)}
+            >
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
+          </span>
+        </div>
+
         <div className="form-control">
           <label className="label cursor-pointer">
             <span>Completed:</span>

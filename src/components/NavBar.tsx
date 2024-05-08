@@ -41,7 +41,7 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
       )}
 
       <div className="grid grid-flow-col bg-primary p-2 text-xl fixed bottom-0 left-0 right-0 z-[999]">
-        <div className="font-bold text-white">Workit Workout Tracker</div>
+        <div className="font-bold text-white">Ximple Workout Tracker</div>
         <div className="text-end">
           <Drawer
             id="header-drawer"
