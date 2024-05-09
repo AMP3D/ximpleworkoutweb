@@ -58,6 +58,7 @@ const Set: FC<SetProps> = (props) => {
         <div className="mt-2">
           <span className="z-10 relative">
             <button
+              aria-label="Remove Set"
               className="btn btn-primary btn-sm text-white"
               onClick={() => onRemoveSet(setIndex)}
             >

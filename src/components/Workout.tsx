@@ -46,6 +46,7 @@ const Workout: FC<WorkoutProps> = (props) => {
           <>
             <span className="mr-3 z-10 relative">
               <button
+                aria-label="Remove Exercise"
                 className="btn btn-primary btn-sm text-white"
                 onClick={() => onRemoveExercise(exercise.name)}
               >

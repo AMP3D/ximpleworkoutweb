@@ -25,6 +25,7 @@ const Workouts: FC = () => {
         <>
           <span className="mr-3 z-10 relative">
             <button
+              aria-label="Remove Workout"
               className="btn btn-secondary btn-sm text-white"
               onClick={() => onRemoveWorkout(workout.name)}
             >
