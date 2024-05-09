@@ -1,6 +1,6 @@
 import "./App.css";
 import Workouts from "./components/Workouts";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useWorkoutStore } from "./store/workoutStore";
 import { useShallow } from "zustand/react/shallow";
 import Errors from "./components/Errors";
@@ -11,7 +11,8 @@ import { useAppStore } from "./store/appStore";
 
 const App: FC = () => {
   const { addError, errors, clearErrors } = useErrorStore();
-  const { hasHydrated, setHasHydrated } = useAppStore();
+  const { hasHydrated, useMobileWidth, setHasHydrated, setUseMobileWidth } =
+    useAppStore();
 
   const { workouts, addWorkout, clearWorkouts } = useWorkoutStore(
     useShallow((state) => ({
@@ -43,20 +44,44 @@ const App: FC = () => {
     hydrateStorage();
   }
 
+  useEffect(() => {
+    const handleResize = () => {
+      const useMobile = window.innerWidth > 600;
+
+      setUseMobileWidth(useMobile);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <>
-      <NavBar onReloadClick={() => hydrateStorage(true)} />
+    <div className="text-center pt-14">
+      <div
+        className={`${
+          useMobileWidth && "mockup-phone border-primary"
+        } text-left`}
+      >
+        {useMobileWidth && <div className="camera"></div>}
 
-      <div className="m-2 text-white">
-        <div className="mb-9 pb-9">
-          <Workouts />
-        </div>
+        <div className="bg-base-100">
+          <NavBar onReloadClick={() => hydrateStorage(true)} />
 
-        <div className="absolute inset-x-2 bottom-20">
-          <Errors errors={errors} onDismiss={clearErrors} />
+          <div className="m-2 text-white phone-1">
+            <div className="mb-9 pb-9 min-h-[60vh]">
+              <Workouts />
+            </div>
+
+            <div className="absolute inset-x-2 bottom-20">
+              <Errors errors={errors} onDismiss={clearErrors} />
+            </div>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

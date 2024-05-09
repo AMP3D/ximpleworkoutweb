@@ -10,6 +10,7 @@ import Drawer from "./ui/Drawer";
 import ExportFileModal from "./ExportFileModal";
 import ImportFileModal from "./ImportFileModal";
 import SampleFileReloadModal from "./SampleFileReloadModal";
+import { useAppStore } from "../store/appStore";
 
 export type NavBarProps = {
   onReloadClick: () => void;
@@ -17,6 +18,7 @@ export type NavBarProps = {
 
 const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
   const { onReloadClick } = props;
+  const { useMobileWidth } = useAppStore();
 
   const [showExportModal, setShowExportModal] = useState(false);
   const [showImportModal, setShowImportModal] = useState(false);
@@ -40,7 +42,11 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
         />
       )}
 
-      <div className="grid grid-flow-col bg-primary p-2 text-xl fixed bottom-0 left-0 right-0 z-[999]">
+      <div
+        className={`grid grid-flow-col bg-primary p-2 text-xl top-0 left-0 right-0 z-[999] border-b ${
+          !useMobileWidth && "fixed"
+        }`}
+      >
         <div className="font-bold text-white">Ximple Workout Tracker</div>
         <div className="text-end">
           <Drawer
