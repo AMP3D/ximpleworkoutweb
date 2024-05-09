@@ -8,4 +8,4 @@ Track your workout routines as you do them, all through the browser. No app stor
 
 Designed for mobile browsers, but compatible with any platform.
 
-![Preview](https://raw.githubusercontent.com/AMP3D/ximpleworkoutweb/main/src/assets/preview-05082024_1612.PNG)
+![Preview](https://raw.githubusercontent.com/AMP3D/ximpleworkoutweb/main/src/assets/preview-05082024_1732.PNG)
