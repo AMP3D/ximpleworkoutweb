@@ -40,8 +40,10 @@ const AddSet: FC<AddSetProps> = (props: AddSetProps) => {
 
     const set = {
       notes,
-      reps,
-      weights: weightsParsed.filter((weight) => !isNaN(weight)),
+      reps: reps !== undefined ? Math.abs(reps) : reps,
+      weights: weightsParsed
+        ?.filter((weight) => !isNaN(weight))
+        ?.map((weight) => Math.abs(weight)),
     } as ISet;
 
     addSet(workoutName, exerciseName, set);
