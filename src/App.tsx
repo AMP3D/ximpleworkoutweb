@@ -56,7 +56,7 @@ const App: FC = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [setUseMobileWidth]);
 
   return (
     <div className="text-center pt-14">
