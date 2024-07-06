@@ -4,20 +4,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { ISet } from "../models";
 import { useWorkoutStore } from "../store/workoutStore";
+import { parseWeights } from "../helpers/weightHelper";
 
-export type AddSetProps = {
+export type AddEditSetProps = {
   exerciseName: string;
+  editSetIndex?: number;
   onClose: () => void;
+  set?: ISet;
   workoutName: string;
 };
 
-const AddSet: FC<AddSetProps> = (props: AddSetProps) => {
-  const { exerciseName, workoutName } = props;
-  const { addSet } = useWorkoutStore();
+const AddEditSet: FC<AddEditSetProps> = (props: AddEditSetProps) => {
+  const { exerciseName, editSetIndex, set, workoutName } = props;
+  const { addEditSet } = useWorkoutStore();
 
-  const [notes, setNotes] = useState("");
-  const [reps, setReps] = useState<number | undefined>();
-  const [weights, setWeights] = useState("");
+  const [notes, setNotes] = useState(set?.notes ?? "");
+  const [reps, setReps] = useState<number | undefined>(set?.reps ?? undefined);
+  const [weights, setWeights] = useState(set?.weights?.join(", ") ?? "");
+
+  const isEdit = editSetIndex !== undefined;
 
   const closeText = (
     <>
@@ -29,14 +34,12 @@ const AddSet: FC<AddSetProps> = (props: AddSetProps) => {
   const confirmText = (
     <>
       <FontAwesomeIcon icon={faPlus} />
-      Add
+      {editSetIndex !== undefined ? "Edit" : "Add"}
     </>
   );
 
   const onModalConfirm = () => {
-    const weightsParsed = weights?.length
-      ? weights.split(/[ ,]+/)?.map((weight) => parseInt(weight))
-      : [0];
+    const weightsParsed = weights?.length ? parseWeights(weights) : [0];
 
     const set = {
       notes,
@@ -46,7 +49,7 @@ const AddSet: FC<AddSetProps> = (props: AddSetProps) => {
         ?.map((weight) => Math.abs(weight)),
     } as ISet;
 
-    addSet(workoutName, exerciseName, set);
+    addEditSet(workoutName, exerciseName, set, editSetIndex);
 
     props.onClose();
   };
@@ -60,7 +63,7 @@ const AddSet: FC<AddSetProps> = (props: AddSetProps) => {
       onModalConfirm={onModalConfirm}
       preventDefault={true}
       showFromBottom={true}
-      title="Add Set"
+      title={isEdit ? "Edit Set" : "Add Set"}
     >
       <label className="input input-bordered flex items-center gap-2 bg-secondary mt-3">
         Reps
@@ -70,6 +73,7 @@ const AddSet: FC<AddSetProps> = (props: AddSetProps) => {
             setReps(event?.target?.value as unknown as number)
           }
           placeholder="15"
+          value={reps}
           type="number"
         />
       </label>
@@ -82,6 +86,7 @@ const AddSet: FC<AddSetProps> = (props: AddSetProps) => {
             className="bg-primary grow"
             onChange={(event) => setWeights(event?.target?.value)}
             placeholder="5, 10, 25"
+            value={weights}
             type="text"
           />
         </div>
@@ -95,6 +100,7 @@ const AddSet: FC<AddSetProps> = (props: AddSetProps) => {
             className="bg-primary grow"
             onChange={(event) => setNotes(event?.target?.value)}
             placeholder="This is a warm-up set"
+            value={notes}
             type="text"
           />
         </div>
@@ -105,4 +111,4 @@ const AddSet: FC<AddSetProps> = (props: AddSetProps) => {
   return <>{addModal}</>;
 };
 
-export default AddSet;
+export default AddEditSet;

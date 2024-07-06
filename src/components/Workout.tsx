@@ -4,11 +4,16 @@ import Exercise from "./Exercise";
 import Collapse from "./ui/Collapse";
 import { useSetStore } from "../store/setStore";
 import { convertToSetId } from "../helpers/stringHelper";
-import AddButton from "./ui/AddButton";
+import AddEditButton from "./ui/AddEditButton";
 import AddExercise from "./AddExercise";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowDown,
+  faArrowUp,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 import RemoveExercise from "./RemoveExercise";
+import { useWorkoutStore } from "../store/workoutStore";
 
 export type WorkoutProps = {
   workout: IWorkout;
@@ -17,6 +22,7 @@ export type WorkoutProps = {
 const Workout: FC<WorkoutProps> = (props) => {
   const { workout } = props;
   const { completedSetIds } = useSetStore();
+  const { moveExercise } = useWorkoutStore();
 
   const [showAddExercise, setShowAddExercise] = useState(false);
   const [removeExerciseName, setRemoveExerciseName] = useState<string>();
@@ -38,26 +44,45 @@ const Workout: FC<WorkoutProps> = (props) => {
       ? "bg-success line-through italic"
       : "bg-secondary";
 
+    const headerBtnClasses = "btn btn-primary btn-xs text-white z-10 relative";
+
     return (
       <Collapse
         classNames={className}
         key={`exercise-${index}`}
-        primaryHeaderText={
-          <>
-            <span className="mr-3 z-10 relative">
+        primaryHeaderText={<span>Exercise: </span>}
+        secondaryHeaderText={exercise.name}
+        headerButtonsRow={
+          <div className="grid grid-cols-9 my-2">
+            <div className="">
               <button
                 aria-label="Remove Exercise"
-                className="btn btn-primary btn-sm text-white"
+                className={`${headerBtnClasses}`}
                 onClick={() => onRemoveExercise(exercise.name)}
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
-            </span>
-
-            <span>Exercise: </span>
-          </>
+            </div>
+            <div className="">
+              <button
+                aria-label="Move Exercise Upwards"
+                className={`${headerBtnClasses}`}
+                onClick={() => moveExercise(workout?.name, index, "up")}
+              >
+                <FontAwesomeIcon icon={faArrowUp} />
+              </button>
+            </div>
+            <div className="">
+              <button
+                aria-label="Move Exercise Downwards"
+                className={`${headerBtnClasses}`}
+                onClick={() => moveExercise(workout?.name, index, "down")}
+              >
+                <FontAwesomeIcon icon={faArrowDown} />
+              </button>
+            </div>
+          </div>
         }
-        secondaryHeaderText={exercise.name}
       >
         <Exercise exercise={exercise} workoutName={workout.name} />
       </Collapse>
@@ -83,10 +108,11 @@ const Workout: FC<WorkoutProps> = (props) => {
 
       {exercises}
 
-      <AddButton
-        onAddClick={() => setShowAddExercise(true)}
+      <AddEditButton
+        onAddEditClick={() => setShowAddExercise(true)}
         buttonText="Add Exercise"
         backgroundClassName="bg-secondary"
+        isEdit={false}
       />
     </>
   );

@@ -1,799 +1,1561 @@
-{
-  "workouts": [
-    {
-      "name": "Pull",
-      "exercises": [
-        {
-          "name": "Bird-dog",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Ab Roller",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 12
-            },
-            {
-              "weights": [0],
-              "reps": 12
-            },
-            {
-              "weights": [0],
-              "reps": 12
-            }
-          ]
-        },
-        {
-          "name": "Knee Crunch",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 12
-            }
-          ]
-        },
-        {
-          "name": "Rows",
-          "muscles": ["Lats", "Traps"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 10],
-              "reps": 20,
-              "notes": "Warm-up set"
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Upright Leg Press (One-Leg)",
-          "muscles": ["Quads, Glutes"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 15
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 15
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 15
-            }
-          ]
-        },
-        {
-          "name": "Lat Pull-Down",
-          "muscles": ["Lats"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Calf Press (One-Leg)",
-          "muscles": ["Calves"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 10, 7.5, 5, 2.5, 2.5],
-              "reps": 15
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 5, 2.5, 2.5],
-              "reps": 15
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 5, 2.5, 2.5],
-              "reps": 15
-            }
-          ]
-        },
-        {
-          "name": "Close-grip Lat Pull-Down",
-          "muscles": ["Lats", "Traps"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 10, 7.5, 5, 2.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 5, 2.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 5, 2.5, 2.5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Seated Leg Curl",
-          "muscles": ["Hamstrings"],
-          "sets": [
-            {
-              "weights": [5, 10, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Face-Pulls",
-          "muscles": ["Back-Delts", "Teres"],
-          "sets": [
-            {
-              "weights": [5, 10, 10],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10, 10],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10, 10],
-              "reps": 12
-            }
-          ]
-        },
-        {
-          "name": "Horizontal Concentration Curl",
-          "muscles": ["Brachialis", "Long-Head Biceps"],
-          "sets": [
-            {
-              "weights": [5, 10, 7.5],
-              "reps": 15,
-              "notes": "Warm-up set"
-            },
-            {
-              "weights": [5, 10, 10, 7.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 7.5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Bayesian Curls",
-          "muscles": ["Long-Head Biceps"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 12
-            }
-          ]
-        },
-        {
-          "name": "Dumbell Bicep Curl",
-          "muscles": ["Brachialis"],
-          "sets": [
-            {
-              "weights": [15],
-              "reps": 12
-            }
-          ]
-        },
-        {
-          "name": "Leg Extensions",
-          "muscles": ["Quads"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 8
-            },
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 8
-            },
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 8
-            },
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 8
-            }
-          ]
-        },
-        {
-          "name": "Glute Kick-backs",
-          "muscles": ["Glutes"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Hammer Curls",
-          "muscles": ["Brachioradialas", "Brachialis"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 13,
-              "notes": "8 full reps, 5 partial"
-            },
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 13,
-              "notes": "8 full reps, 5 partial"
-            },
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 13,
-              "notes": "8 full reps, 5 partial"
-            },
-            {
-              "weights": [5, 10, 10, 5],
-              "reps": 13,
-              "notes": "8 full reps, 5 partial"
-            }
-          ]
-        },
-        {
-          "name": "Arm Wrestle Curl",
-          "muscles": ["Pronator"],
-          "sets": [
-            {
-              "weights": [5, 10],
-              "reps": 15
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Push",
-      "exercises": [
-        {
-          "name": "Bird-dog",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 10,
-              "notes": "Per side"
-            },
-            {
-              "weights": [0],
-              "reps": 10,
-              "notes": "Per side"
-            }
-          ]
-        },
-        {
-          "name": "Decline Press",
-          "muscles": ["Chest"],
-          "sets": [
-            {
-              "weights": [5, 10, 10],
-              "reps": 20,
-              "notes": "Warm-up set"
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Weighted Crunch",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [25],
-              "reps": 15
-            },
-            {
-              "weights": [25],
-              "reps": 15
-            },
-            {
-              "weights": [25],
-              "reps": 15
-            }
-          ]
-        },
-        {
-          "name": "Knee Crunch",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 15
-            }
-          ]
-        },
-        {
-          "name": "Incline Press",
-          "muscles": ["Chest"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 10, 7.5, 5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Planks",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 1,
-              "notes": "1 minute duration"
-            },
-            {
-              "weights": [0],
-              "reps": 1,
-              "notes": "1 minute duration"
-            }
-          ]
-        },
-        {
-          "name": "Flat Press Drop-Sets",
-          "muscles": ["Chest"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 7.5, 2.5, 2.5, 2.5],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10, 10, 7.5, 2.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 7.5, 2.5],
-              "reps": 8
-            },
-            {
-              "weights": [5, 10, 10, 7.5],
-              "reps": 6
-            }
-          ]
-        },
-        {
-          "name": "Flat Flies",
-          "muscles": ["Chest"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10,
-              "notes": "Hold last rep for 10 seconds"
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10,
-              "notes": "Hold last rep for 10 seconds"
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10,
-              "notes": "Hold last rep for 10 seconds"
-            }
-          ]
-        },
-        {
-          "name": "Tricep Bar Push-down",
-          "muscles": ["Lateral Head Tricep"],
-          "sets": [
-            {
-              "weights": [5, 10, 10],
-              "reps": 20,
-              "notes": "Warm-up set"
-            },
-            {
-              "weights": [5, 10, 10, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Landmine Shoulder Press",
-          "muscles": ["Delts"],
-          "sets": [
-            {
-              "weights": [5, 10, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Reverse Flies",
-          "muscles": ["Traps"],
-          "sets": [
-            {
-              "weights": [5, 10],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10],
-              "reps": 12
-            }
-          ]
-        },
-        {
-          "name": "Incline Tricep Kickbacks",
-          "muscles": ["Long Head Tricep"],
-          "sets": [
-            {
-              "weights": [5, 10, 2.5],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10, 2.5],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10, 2.5],
-              "reps": 12
-            },
-            {
-              "weights": [5, 10, 2.5],
-              "reps": 12
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Combo",
-      "exercises": [
-        {
-          "name": "Bird-dog",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Ab Roller",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 12
-            },
-            {
-              "weights": [0],
-              "reps": 12
-            },
-            {
-              "weights": [0],
-              "reps": 12
-            }
-          ]
-        },
-        {
-          "name": "Knee Crunch",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [0],
-              "reps": 15
-            }
-          ]
-        },
-        {
-          "name": "Decline Flies + Super-set Flat Flies",
-          "muscles": ["Chest"],
-          "sets": [
-            {
-              "weights": [5, 10, 10],
-              "reps": 30,
-              "notes": "Warm-up set, 15 reps per exercise"
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 20,
-              "notes": "10 reps per exercise"
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 20,
-              "notes": "10 reps per exercise"
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 20,
-              "notes": "10 reps per exercise"
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 20,
-              "notes": "10 reps per exercise"
-            }
-          ]
-        },
-        {
-          "name": "Tricep Rope Pull-down",
-          "muscles": ["Medial Head Tricep"],
-          "sets": [
-            {
-              "weights": [5, 10, 10],
-              "reps": 20,
-              "notes": "Warm-up set"
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 2.5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Ab Trunk Rotation",
-          "muscles": ["Abs"],
-          "sets": [
-            {
-              "weights": [5, 10, 7.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 7.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 7.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 7.5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Lateral Raise",
-          "muscles": ["Delts", "Serratus"],
-          "sets": [
-            {
-              "weights": [5, 10, 7.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 7.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 7.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 7.5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Overhead Tricep Extension",
-          "muscles": ["Long Head Tricep"],
-          "sets": [
-            {
-              "weights": [5, 10, 7.5, 5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 7.5, 5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 7.5, 5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 7.5, 5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Rows",
-          "muscles": ["Lats", "Traps"],
-          "sets": [
-            {
-              "weights": [5, 10, 10, 10],
-              "reps": 20,
-              "notes": "Warm-up set"
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 10, 10, 7.5, 2.5],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "Sideways Standing Bicep Curl",
-          "muscles": ["Biceps Brachii"],
-          "sets": [
-            {
-              "weights": [5, 10, 5],
-              "reps": 15,
-              "notes": "Warm-up set"
-            },
-            {
-              "weights": [5, 10, 5, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 5, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 5, 10],
-              "reps": 10
-            },
-            {
-              "weights": [5, 10, 5, 10],
-              "reps": 10
-            }
-          ]
-        },
-        {
-          "name": "21s Preacher Curl",
-          "muscles": ["Brachialis", "Short-head Biceps"],
-          "sets": [
-            {
-              "weights": [5, 10, 5],
-              "reps": 21,
-              "notes": "7 full reps, 7 partial, 7 full"
-            },
-            {
-              "weights": [5, 10, 5],
-              "reps": 21,
-              "notes": "7 full reps, 7 partial, 7 full"
-            },
-            {
-              "weights": [5, 10, 5],
-              "reps": 21,
-              "notes": "7 full reps, 7 partial, 7 full"
-            }
-          ]
-        },
-        {
-          "name": "Arm Wrestle Curl",
-          "muscles": ["Pronator"],
-          "sets": [
-            {
-              "weights": [5, 10],
-              "reps": 15
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "name": "Back, Legs, Abs",
+    "exercises": [
+      {
+        "name": "Bird-Dog",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ab Roller",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "weights": [
+              0
+            ],
+            "reps": 12
+          },
+          {
+            "weights": [
+              0
+            ],
+            "reps": 12
+          },
+          {
+            "weights": [
+              0
+            ],
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Knee Crunch",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": "15",
+            "weights": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Upright Leg Press (One-Leg)",
+        "muscles": [
+          "Quads, Glutes"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 15,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 15,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 15,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Lat Pull-Down",
+        "muscles": [
+          "Lats"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rows",
+        "muscles": [
+          "Lats",
+          "Traps"
+        ],
+        "sets": [
+          {
+            "weights": [
+              5,
+              10,
+              10,
+              10
+            ],
+            "reps": 20,
+            "notes": "Warm-up set"
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Calf Press (One-Leg)",
+        "muscles": [
+          "Calves"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 15,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 15,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 15,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Close-grip Lat Pull-Down",
+        "muscles": [
+          "Lats",
+          "Traps"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Seated Leg Curl",
+        "muscles": [
+          "Hamstrings"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Face-Pulls",
+        "muscles": [
+          "Back-Delts",
+          "Teres"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Biceps, Legs",
+    "exercises": [
+      {
+        "name": "Horizontal Concentration Curl",
+        "muscles": [
+          "Brachialis",
+          "Long-Head",
+          "Biceps"
+        ],
+        "sets": [
+          {
+            "notes": "Warm-up",
+            "reps": 15,
+            "weights": [
+              5,
+              10,
+              7.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              7.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              7.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Bayesian Curls",
+        "muscles": [
+          "Long-Head Biceps"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              7.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              7.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dumbell Bicep Curl",
+        "muscles": [
+          "Brachialis"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 15,
+            "weights": [
+              15
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Leg Extensions",
+        "muscles": [
+          "Quads"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Hammer Curls",
+        "muscles": [
+          "Brachioradialas",
+          "Brachialis"
+        ],
+        "sets": [
+          {
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ],
+            "reps": 13,
+            "notes": "8 full reps, 5 partial"
+          },
+          {
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ],
+            "reps": 13,
+            "notes": "8 full reps, 5 partial"
+          },
+          {
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ],
+            "reps": 13,
+            "notes": "8 full reps, 5 partial"
+          },
+          {
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ],
+            "reps": 13,
+            "notes": "8 full reps, 5 partial"
+          }
+        ]
+      },
+      {
+        "name": "Glute Kick-backs",
+        "muscles": [
+          "Glutes"
+        ],
+        "sets": [
+          {
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ],
+            "reps": 10
+          },
+          {
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ],
+            "reps": 10
+          },
+          {
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ],
+            "reps": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Chest, Abs",
+    "exercises": [
+      {
+        "name": "Bird-Dog",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "weights": [
+              0
+            ],
+            "reps": 10,
+            "notes": "Per side"
+          },
+          {
+            "weights": [
+              0
+            ],
+            "reps": 10,
+            "notes": "Per side"
+          }
+        ]
+      },
+      {
+        "name": "Weighted Crunch",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "weights": [
+              25
+            ],
+            "reps": 15
+          },
+          {
+            "weights": [
+              25
+            ],
+            "reps": 15
+          },
+          {
+            "weights": [
+              25
+            ],
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Knee Crunch",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "weights": [
+              0
+            ],
+            "reps": 15
+          }
+        ]
+      },
+      {
+        "name": "Planks",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "weights": [
+              0
+            ],
+            "reps": 1,
+            "notes": "1 minute duration"
+          },
+          {
+            "weights": [
+              0
+            ],
+            "reps": 1,
+            "notes": "1 minute duration"
+          }
+        ]
+      },
+      {
+        "name": "Incline Press",
+        "muscles": [
+          "Chest"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Decline Press",
+        "muscles": [
+          "Chest"
+        ],
+        "sets": [
+          {
+            "weights": [
+              5,
+              10,
+              10
+            ],
+            "reps": 20,
+            "notes": "Warm-up set"
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Flat Press Drop-Sets",
+        "muscles": [
+          "Chest"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              2.5,
+              2.5,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              2.5,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 8,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 6,
+            "weights": [
+              5,
+              10,
+              10,
+              10
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Flat Flies",
+        "muscles": [
+          "Chest"
+        ],
+        "sets": [
+          {
+            "notes": "Hold last rep for 10 seconds",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "Hold last rep for 10 seconds",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "Hold last rep for 10 seconds",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Shoulders, Triceps",
+    "exercises": [
+      {
+        "name": "Tricep Bar Push-down",
+        "muscles": [
+          ""
+        ],
+        "sets": [
+          {
+            "notes": "Warm-up",
+            "reps": 20,
+            "weights": [
+              5,
+              10,
+              10
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Landmine Shoulder Press",
+        "muscles": [
+          "Delts"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Reverse Flies",
+        "muscles": [
+          "Traps"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Incline Tricep Kickbacks",
+        "muscles": [
+          "Long Head Tricep"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              5
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Back, Biceps, Abs",
+    "exercises": [
+      {
+        "name": "Bird-Dog",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ab Roller",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "weights": [
+              0
+            ],
+            "reps": 12
+          },
+          {
+            "weights": [
+              0
+            ],
+            "reps": 12
+          },
+          {
+            "weights": [
+              0
+            ],
+            "reps": 12
+          }
+        ]
+      },
+      {
+        "name": "Knee Crunch",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": "15",
+            "weights": [
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rows",
+        "muscles": [
+          "Lats",
+          "Traps"
+        ],
+        "sets": [
+          {
+            "weights": [
+              5,
+              10,
+              10,
+              10
+            ],
+            "reps": 20,
+            "notes": "Warm-up set"
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Chin ups",
+        "muscles": [
+          "Biceps"
+        ],
+        "sets": [
+          {
+            "notes": "Warm-up",
+            "reps": 20,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              5,
+              2.5,
+              2.5,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              5,
+              2.5,
+              2.5,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              5,
+              2.5,
+              2.5,
+              2.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              10,
+              7.5,
+              5,
+              2.5,
+              2.5,
+              2.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sideways Standing Bicep Curl",
+        "muscles": [
+          "Biceps Brachii"
+        ],
+        "sets": [
+          {
+            "notes": "7 full, 7 partial, 7 full reps",
+            "reps": 21,
+            "weights": [
+              5,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "7 full, 7 partial, 7 full reps",
+            "reps": 21,
+            "weights": [
+              5,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "7 full, 7 partial, 7 full reps",
+            "reps": 21,
+            "weights": [
+              5,
+              10,
+              5
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Chest, Delts, Triceps",
+    "exercises": [
+      {
+        "name": "Tricep Rope Pull-down",
+        "muscles": [
+          "Medial Head Tricep"
+        ],
+        "sets": [
+          {
+            "notes": "Warm-up",
+            "reps": 20,
+            "weights": [
+              5,
+              10,
+              10
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Decline Flies + Super-set Flat Flies",
+        "muscles": [
+          "Chest"
+        ],
+        "sets": [
+          {
+            "weights": [
+              5,
+              10,
+              10
+            ],
+            "reps": 30,
+            "notes": "Warm-up set, 15 reps per exercise"
+          },
+          {
+            "notes": "10 reps per exercise",
+            "reps": 20,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "10 reps per exercise",
+            "reps": 20,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "10 reps per exercise",
+            "reps": 20,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "10 reps per exercise",
+            "reps": 20,
+            "weights": [
+              5,
+              10,
+              10,
+              10,
+              5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ab Trunk Rotation",
+        "muscles": [
+          "Abs"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 10,
+            "weights": [
+              5,
+              10,
+              10
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Lateral Raise",
+        "muscles": [
+          "Delts",
+          "Serratus"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              7.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              7.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              7.5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              7.5
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Overhead Tricep Extension",
+        "muscles": [
+          "Long Head Tricep"
+        ],
+        "sets": [
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ]
+          },
+          {
+            "notes": "",
+            "reps": 12,
+            "weights": [
+              5,
+              10,
+              10,
+              5
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

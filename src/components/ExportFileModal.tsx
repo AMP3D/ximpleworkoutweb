@@ -4,6 +4,7 @@ import { useWorkoutStore } from "../store/workoutStore";
 import { convertToBlob } from "../helpers/fileHelper";
 import FileSaver from "file-saver";
 import { useErrorStore } from "../store/errorStore";
+import dayjs from "dayjs";
 
 export type ExportFileModalProps = {
   onModalClose: () => void;
@@ -18,8 +19,7 @@ const ExportFileModal: FC<ExportFileModalProps> = (
   const onExportConfirm = () => {
     if (workouts?.length) {
       const workoutsBlob = convertToBlob(workouts);
-      const date = new Date();
-      const fileDate = `${date.getMonth()}-${date.getDay()}-${date.getFullYear()}-${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
+      const fileDate = dayjs().format("YYYY-MM-DDTHH-mm-ss");
 
       const file = new File([workoutsBlob], `ximple-export-${fileDate}.json`, {
         type: "text/plain;charset=utf-8",

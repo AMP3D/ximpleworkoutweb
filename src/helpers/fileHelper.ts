@@ -40,7 +40,7 @@ export const parseWorkouts = (workouts: IWorkout[]): ImportResults => {
 };
 
 export const importSampleFile = (): ImportResults => {
-  const workouts = workoutFile.workouts as IWorkout[];
+  const workouts = workoutFile as IWorkout[];
 
   return parseWorkouts(workouts);
 };

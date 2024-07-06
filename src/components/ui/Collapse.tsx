@@ -4,6 +4,7 @@ export type CollapseProps = {
   classNames?: string;
   children: React.ReactNode;
   contentClassNames?: string;
+  headerButtonsRow?: React.ReactNode;
   headerClassNames?: string;
   primaryHeaderText: React.ReactNode;
   secondaryHeaderText?: string;
@@ -14,6 +15,7 @@ const Collapse: FC<CollapseProps> = (props) => {
     classNames,
     children,
     contentClassNames,
+    headerButtonsRow,
     headerClassNames,
     primaryHeaderText,
     secondaryHeaderText,
@@ -28,6 +30,7 @@ const Collapse: FC<CollapseProps> = (props) => {
         {secondaryHeaderText && (
           <span className="text-accent">{secondaryHeaderText}</span>
         )}
+        <div>{headerButtonsRow}</div>
       </div>
 
       <div className={"collapse-content " + contentClassNames}>{children}</div>

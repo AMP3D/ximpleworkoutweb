@@ -5,9 +5,11 @@ import { convertToSetId } from "../helpers/stringHelper";
 import { getTotalVolume } from "../helpers/weightHelper";
 import { useSetStore } from "../store/setStore";
 import React from "react";
-import AddButton from "./ui/AddButton";
-import AddSet from "./AddSet";
+import AddEditButton from "./ui/AddEditButton";
+import AddEditSet from "./AddEditSet";
 import RemoveSet from "./RemoveSet";
+import { MoveDirection } from "../models/Move";
+import { useWorkoutStore } from "../store/workoutStore";
 
 export type ExerciseProps = {
   exercise: IExercise;
@@ -17,9 +19,29 @@ export type ExerciseProps = {
 const ExerciseComponent: FC<ExerciseProps> = (props) => {
   const { exercise, workoutName } = props;
   const { completedSetIds, setCompletedSetId } = useSetStore();
+  const { copySet, moveSet } = useWorkoutStore();
 
+  const [editSetIndex, setEditSetIndex] = useState<number>();
   const [removeSetIndex, setRemoveSetIndex] = useState<number>();
-  const [showAddSet, setShowAddSet] = useState(false);
+  const [showAddEditSet, setShowAddEditSet] = useState(false);
+
+  const onCloseAddEditSet = () => {
+    setShowAddEditSet(false);
+    setEditSetIndex(undefined);
+  };
+
+  const onCopySet = (setIndex: number) => {
+    copySet(workoutName, exercise?.name, setIndex);
+  };
+
+  const onEditSet = (setIndex: number) => {
+    setEditSetIndex(setIndex);
+    setShowAddEditSet(true);
+  };
+
+  const onMoveSet = (setIndex: number, direction: MoveDirection) => {
+    moveSet(workoutName, exercise?.name, setIndex, direction);
+  };
 
   const onRemoveSet = (setIndex: number) => {
     setRemoveSetIndex(setIndex);
@@ -57,18 +79,26 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
           setIndex={index}
           isCompleted={isCompleted}
           onComplete={onComplete}
+          onCopySet={onCopySet}
+          onEditSet={onEditSet}
+          onMoveSet={onMoveSet}
           onRemoveSet={onRemoveSet}
         />
       </div>
     );
   });
 
+  const editSet =
+    editSetIndex !== undefined ? exercise.sets[editSetIndex] : undefined;
+
   return (
     <>
-      {showAddSet && (
-        <AddSet
-          onClose={() => setShowAddSet(false)}
+      {showAddEditSet && (
+        <AddEditSet
+          onClose={onCloseAddEditSet}
+          editSetIndex={editSetIndex}
           exerciseName={exercise?.name}
+          set={editSet}
           workoutName={workoutName}
         />
       )}
@@ -98,10 +128,11 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
 
       {sets}
 
-      <AddButton
-        onAddClick={() => setShowAddSet(true)}
-        buttonText="Add Set"
+      <AddEditButton
+        onAddEditClick={() => setShowAddEditSet(true)}
+        buttonText={"Add Set"}
         backgroundClassName="bg-secondary-content"
+        isEdit={false}
       />
     </>
   );

@@ -2,19 +2,38 @@ import { getTotalWeight } from "../helpers/weightHelper";
 import { ISet } from "../models";
 import { FC, useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowDown,
+  faArrowUp,
+  faClone,
+  faEdit,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
+import { MoveDirection } from "../models/Move";
 
 export type SetProps = {
   isCompleted: boolean;
   onComplete: (isCompleted: boolean) => void;
+  onCopySet: (setIndex: number) => void;
+  onEditSet: (setIndex: number) => void;
+  onMoveSet: (setIndex: number, direction: MoveDirection) => void;
   onRemoveSet: (setIndex: number) => void;
   set: ISet;
   setIndex: number;
 };
 
 const Set: FC<SetProps> = (props) => {
-  const { isCompleted, onComplete, onRemoveSet, set, setIndex } = props;
-  const weights = useMemo(() => set.weights?.join(", "), [set]);
+  const {
+    isCompleted,
+    onComplete,
+    onCopySet,
+    onEditSet,
+    onMoveSet,
+    onRemoveSet,
+    set,
+    setIndex,
+  } = props;
+  const weights = useMemo(() => set?.weights?.join(", "), [set]);
   const totalWeight = useMemo(() => getTotalWeight(set), [set]);
 
   return (
@@ -27,7 +46,7 @@ const Set: FC<SetProps> = (props) => {
 
         <div>
           <span>Reps: </span>
-          <span className="badge badge-primary font-bold">{set.reps}</span>
+          <span className="badge badge-primary font-bold">{set?.reps}</span>
         </div>
       </div>
 
@@ -47,26 +66,63 @@ const Set: FC<SetProps> = (props) => {
         </div>
       )}
 
-      {!!set.notes && (
+      {!!set?.notes && (
         <div>
           <div>Notes: </div>
-          <div className="text-base-content mt-1">{set.notes}</div>
+          <div className="text-base-content mt-1">{set?.notes}</div>
         </div>
       )}
 
-      <div className="grid grid-cols-2">
-        <div className="mt-2">
-          <span className="z-10 relative">
-            <button
-              aria-label="Remove Set"
-              className="btn btn-primary btn-sm text-white"
-              onClick={() => onRemoveSet(setIndex)}
-            >
-              <FontAwesomeIcon icon={faTrash} />
-            </button>
-          </span>
+      <div className="grid grid-cols-8 z-10 relative mt-3">
+        <div className="">
+          <button
+            aria-label="Remove Set"
+            className="btn btn-primary btn-xs text-white"
+            onClick={() => onRemoveSet(setIndex)}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
         </div>
+        <div className="">
+          <button
+            aria-label="Edit Set"
+            className="btn btn-primary btn-xs text-white"
+            onClick={() => onEditSet(setIndex)}
+          >
+            <FontAwesomeIcon icon={faEdit} />
+          </button>
+        </div>
+        <div className="">
+          <button
+            aria-label="Move Set Upwards"
+            className="btn btn-primary btn-xs text-white"
+            onClick={() => onMoveSet(setIndex, "up")}
+          >
+            <FontAwesomeIcon icon={faArrowUp} />
+          </button>
+        </div>
+        <div className="">
+          <button
+            aria-label="Move Set Downwards"
+            className="btn btn-primary btn-xs text-white"
+            onClick={() => onMoveSet(setIndex, "down")}
+          >
+            <FontAwesomeIcon icon={faArrowDown} />
+          </button>
+        </div>
+        <div className="">
+          <button
+            aria-label="Copy Set"
+            className="btn btn-primary btn-xs text-white"
+            onClick={() => onCopySet(setIndex)}
+          >
+            <FontAwesomeIcon icon={faClone} />
+          </button>
+        </div>
+      </div>
 
+      <div className="grid grid-cols-2">
+        <div></div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span>Completed:</span>

@@ -1,11 +1,14 @@
 import { ISet } from "../models";
 
 export const getTotalVolume = (sets: ISet[]) =>
-  sets.reduce((prev, curr) => {
+  sets?.reduce((prev, curr) => {
     const totalWeight = getTotalWeight(curr);
 
-    return prev + curr.reps * totalWeight;
+    return prev + curr?.reps * totalWeight;
   }, 0);
 
 export const getTotalWeight = (set: ISet) =>
-  set.weights.reduce((prev, curr) => prev + curr, 0);
+  set?.weights?.reduce((prev, curr) => prev + curr, 0);
+
+export const parseWeights = (weights: string) =>
+  weights?.split(/[ ,]+/)?.map((weight) => parseFloat(weight));
