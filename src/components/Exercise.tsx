@@ -48,17 +48,17 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
   };
 
   const totalVolume = useMemo(
-    () => getTotalVolume(exercise.sets),
-    [exercise.sets]
+    () => getTotalVolume(exercise?.sets),
+    [exercise?.sets]
   );
 
   const musclesWorked = useMemo(
-    () => exercise.muscles?.join(", "),
-    [exercise.muscles]
+    () => exercise?.muscles?.join(", "),
+    [exercise?.muscles]
   );
 
-  const sets = exercise.sets.map((set, index) => {
-    const setId = convertToSetId(workoutName, exercise.name, index);
+  const sets = exercise?.sets.map((set, index) => {
+    const setId = convertToSetId(workoutName, exercise?.name, index);
     const isCompleted = !!completedSetIds[setId];
 
     const onComplete = () => {
@@ -89,7 +89,7 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
   });
 
   const editSet =
-    editSetIndex !== undefined ? exercise.sets[editSetIndex] : undefined;
+    editSetIndex !== undefined ? exercise?.sets[editSetIndex] : undefined;
 
   return (
     <>

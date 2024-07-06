@@ -145,23 +145,26 @@ export const useWorkoutStore = create<WorkoutStore>()(
         if (!workoutNameTrimmed) {
           return;
         }
+
         const workouts = get().workouts;
         workouts.forEach((workout) => {
-          if (direction === "up" && exerciseIndex >= 1) {
-            workout.exercises = moveArrayItem(
-              workout.exercises,
-              exerciseIndex,
-              exerciseIndex - 1
-            );
-          } else if (
-            direction === "down" &&
-            exerciseIndex < (workout?.exercises?.length || 0) - 1
-          ) {
-            workout.exercises = moveArrayItem(
-              workout.exercises,
-              exerciseIndex,
-              exerciseIndex + 1
-            );
+          if (getTrimmedLowercase(workout.name) === workoutNameTrimmed) {
+            if (direction === "up" && exerciseIndex >= 1) {
+              workout.exercises = moveArrayItem(
+                workout.exercises,
+                exerciseIndex,
+                exerciseIndex - 1
+              );
+            } else if (
+              direction === "down" &&
+              exerciseIndex < (workout?.exercises?.length || 0) - 1
+            ) {
+              workout.exercises = moveArrayItem(
+                workout.exercises,
+                exerciseIndex,
+                exerciseIndex + 1
+              );
+            }
           }
         });
 

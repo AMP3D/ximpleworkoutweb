@@ -31,11 +31,11 @@ const Workout: FC<WorkoutProps> = (props) => {
     setRemoveExerciseName(exerciseName);
   };
 
-  const exercises = workout.exercises.map((exercise, index) => {
+  const exercises = workout?.exercises?.map((exercise, index) => {
     const exerciseComplete =
-      exercise.sets?.length &&
-      exercise.sets.every((_, index) => {
-        const setId = convertToSetId(workout.name, exercise.name, index);
+      exercise?.sets?.length &&
+      exercise?.sets.every((_, index) => {
+        const setId = convertToSetId(workout.name, exercise?.name, index);
 
         return !!completedSetIds[setId];
       });
@@ -51,14 +51,14 @@ const Workout: FC<WorkoutProps> = (props) => {
         classNames={className}
         key={`exercise-${index}`}
         primaryHeaderText={<span>Exercise: </span>}
-        secondaryHeaderText={exercise.name}
+        secondaryHeaderText={exercise?.name}
         headerButtonsRow={
           <div className="grid grid-cols-9 my-2">
             <div className="">
               <button
                 aria-label="Remove Exercise"
                 className={`${headerBtnClasses}`}
-                onClick={() => onRemoveExercise(exercise.name)}
+                onClick={() => onRemoveExercise(exercise?.name)}
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
