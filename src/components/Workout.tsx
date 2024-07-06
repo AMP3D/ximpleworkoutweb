@@ -44,7 +44,7 @@ const Workout: FC<WorkoutProps> = (props) => {
       ? "bg-success line-through italic"
       : "bg-secondary";
 
-    const headerBtnClasses = "btn btn-primary btn-xs text-white z-10 relative";
+    const headerBtnClasses = "btn btn-primary btn-sm text-white z-10 relative";
 
     return (
       <Collapse
@@ -53,7 +53,7 @@ const Workout: FC<WorkoutProps> = (props) => {
         primaryHeaderText={<span>Exercise: </span>}
         secondaryHeaderText={exercise?.name}
         headerButtonsRow={
-          <div className="grid grid-cols-9 my-2">
+          <div className="grid grid-cols-6 my-2">
             <div className="">
               <button
                 aria-label="Remove Exercise"

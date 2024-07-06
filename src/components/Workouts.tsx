@@ -26,7 +26,7 @@ const Workouts: FC = () => {
     setRemoveWorkoutName(workoutName);
   };
 
-  const headerBtnClasses = "btn btn-secondary btn-xs text-white z-10 relative";
+  const headerBtnClasses = "btn btn-secondary btn-sm text-white z-10 relative";
 
   const workoutsElements = workouts.map((workout, index) => (
     <Collapse
@@ -35,7 +35,7 @@ const Workouts: FC = () => {
       primaryHeaderText={<span>Workout: </span>}
       secondaryHeaderText={workout.name}
       headerButtonsRow={
-        <div className="grid grid-cols-9 my-2">
+        <div className="grid grid-cols-7">
           <div className="">
             <button
               aria-label="Remove Workout"

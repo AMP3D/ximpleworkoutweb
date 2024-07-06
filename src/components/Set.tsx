@@ -73,11 +73,11 @@ const Set: FC<SetProps> = (props) => {
         </div>
       )}
 
-      <div className="grid grid-cols-8 z-10 relative mt-3">
+      <div className="grid grid-cols-5 z-10 relative mt-3 text-center">
         <div className="">
           <button
             aria-label="Remove Set"
-            className="btn btn-primary btn-xs text-white"
+            className="btn btn-primary btn-sm text-white"
             onClick={() => onRemoveSet(setIndex)}
           >
             <FontAwesomeIcon icon={faTrash} />
@@ -86,7 +86,7 @@ const Set: FC<SetProps> = (props) => {
         <div className="">
           <button
             aria-label="Edit Set"
-            className="btn btn-primary btn-xs text-white"
+            className="btn btn-primary btn-sm text-white"
             onClick={() => onEditSet(setIndex)}
           >
             <FontAwesomeIcon icon={faEdit} />
@@ -95,7 +95,7 @@ const Set: FC<SetProps> = (props) => {
         <div className="">
           <button
             aria-label="Move Set Upwards"
-            className="btn btn-primary btn-xs text-white"
+            className="btn btn-primary btn-sm text-white"
             onClick={() => onMoveSet(setIndex, "up")}
           >
             <FontAwesomeIcon icon={faArrowUp} />
@@ -104,7 +104,7 @@ const Set: FC<SetProps> = (props) => {
         <div className="">
           <button
             aria-label="Move Set Downwards"
-            className="btn btn-primary btn-xs text-white"
+            className="btn btn-primary btn-sm text-white"
             onClick={() => onMoveSet(setIndex, "down")}
           >
             <FontAwesomeIcon icon={faArrowDown} />
@@ -113,7 +113,7 @@ const Set: FC<SetProps> = (props) => {
         <div className="">
           <button
             aria-label="Copy Set"
-            className="btn btn-primary btn-xs text-white"
+            className="btn btn-primary btn-sm text-white"
             onClick={() => onCopySet(setIndex)}
           >
             <FontAwesomeIcon icon={faClone} />
