@@ -1,13 +1,13 @@
-import "./App.css";
-import Workouts from "./components/Workouts";
 import { FC, useEffect } from "react";
-import { useWorkoutStore } from "./store/workoutStore";
 import { useShallow } from "zustand/react/shallow";
+import "./App.css";
 import Errors from "./components/Errors";
-import { useErrorStore } from "./store/errorStore";
-import { importSampleFile } from "./helpers";
 import NavBar from "./components/NavBar";
+import Workouts from "./components/Workouts";
+import { importSampleFile } from "./helpers";
 import { useAppStore } from "./store/appStore";
+import { useErrorStore } from "./store/errorStore";
+import { useWorkoutStore } from "./store/workoutStore";
 
 const App: FC = () => {
   const { addError, errors, clearErrors } = useErrorStore();
@@ -50,6 +50,9 @@ const App: FC = () => {
 
       setUseMobileWidth(useMobile);
     };
+
+    // Call handleResize immediately to set initial state
+    handleResize();
 
     window.addEventListener("resize", handleResize);
 
