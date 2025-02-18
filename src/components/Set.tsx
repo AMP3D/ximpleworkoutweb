@@ -1,7 +1,3 @@
-import { getTotalWeight } from "../helpers/weightHelper";
-import { ISet } from "../models";
-import { FC, useMemo } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowDown,
   faArrowUp,
@@ -9,10 +5,15 @@ import {
   faEdit,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FC, useMemo } from "react";
+import { getTotalWeight } from "../helpers/weightHelper";
+import { ISet } from "../models";
 import { MoveDirection } from "../models/Move";
 
 export type SetProps = {
   isCompleted: boolean;
+  lastCompleted: string | undefined;
   onComplete: (isCompleted: boolean) => void;
   onCopySet: (setIndex: number) => void;
   onEditSet: (setIndex: number) => void;
@@ -20,11 +21,14 @@ export type SetProps = {
   onRemoveSet: (setIndex: number) => void;
   set: ISet;
   setIndex: number;
+  setId: string;
+  completedSetIds: { [key: string]: boolean };
 };
 
 const Set: FC<SetProps> = (props) => {
   const {
     isCompleted,
+    lastCompleted,
     onComplete,
     onCopySet,
     onEditSet,
@@ -122,7 +126,14 @@ const Set: FC<SetProps> = (props) => {
       </div>
 
       <div className="grid grid-cols-2">
-        <div></div>
+        <div className="flex flex-col justify-center">
+          {isCompleted && (
+            <div className="text-xs text-left break-words no-underline not-italic">
+              <div>Last completed:</div>
+              <div className="text-base-content">{lastCompleted}</div>
+            </div>
+          )}
+        </div>
         <div className="form-control">
           <label className="label cursor-pointer">
             <span>Completed:</span>

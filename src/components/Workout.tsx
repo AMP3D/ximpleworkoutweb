@@ -1,19 +1,20 @@
-import { IWorkout } from "../models";
-import { FC, useState } from "react";
-import Exercise from "./Exercise";
-import Collapse from "./ui/Collapse";
-import { useSetStore } from "../store/setStore";
-import { convertToSetId } from "../helpers/stringHelper";
-import AddEditButton from "./ui/AddEditButton";
-import AddExercise from "./AddExercise";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowDown,
   faArrowUp,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
-import RemoveExercise from "./RemoveExercise";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FC, useState } from "react";
+import { getLastCompletedSet } from "../helpers";
+import { convertToSetId } from "../helpers/stringHelper";
+import { IWorkout } from "../models";
+import { useSetStore } from "../store/setStore";
 import { useWorkoutStore } from "../store/workoutStore";
+import AddExercise from "./AddExercise";
+import Exercise from "./Exercise";
+import RemoveExercise from "./RemoveExercise";
+import AddEditButton from "./ui/AddEditButton";
+import Collapse from "./ui/Collapse";
 
 export type WorkoutProps = {
   workout: IWorkout;
@@ -21,7 +22,7 @@ export type WorkoutProps = {
 
 const Workout: FC<WorkoutProps> = (props) => {
   const { workout } = props;
-  const { completedSetIds } = useSetStore();
+  const { lastCompletedSets, completedSetIds } = useSetStore();
   const { moveExercise } = useWorkoutStore();
 
   const [showAddExercise, setShowAddExercise] = useState(false);
@@ -32,6 +33,8 @@ const Workout: FC<WorkoutProps> = (props) => {
   };
 
   const exercises = workout?.exercises?.map((exercise, index) => {
+    let lastCompleted: string | undefined;
+
     const exerciseComplete =
       exercise?.sets?.length &&
       exercise?.sets.every((_, index) => {
@@ -39,6 +42,17 @@ const Workout: FC<WorkoutProps> = (props) => {
 
         return !!completedSetIds[setId];
       });
+
+    if (exerciseComplete) {
+      const lastSetIndex = exercise?.sets?.length - 1;
+
+      lastCompleted = getLastCompletedSet(
+        workout,
+        exercise,
+        lastSetIndex,
+        lastCompletedSets
+      );
+    }
 
     const className = exerciseComplete
       ? "bg-success line-through italic"
@@ -53,38 +67,49 @@ const Workout: FC<WorkoutProps> = (props) => {
         primaryHeaderText={<span>Exercise: </span>}
         secondaryHeaderText={exercise?.name}
         headerButtonsRow={
-          <div className="grid grid-cols-6 my-2">
-            <div className="">
-              <button
-                aria-label="Remove Exercise"
-                className={`${headerBtnClasses}`}
-                onClick={() => onRemoveExercise(exercise?.name)}
-              >
-                <FontAwesomeIcon icon={faTrash} />
-              </button>
+          <div>
+            <div className="grid grid-cols-6 my-2">
+              <div className="">
+                <button
+                  aria-label="Remove Exercise"
+                  className={`${headerBtnClasses}`}
+                  onClick={() => onRemoveExercise(exercise?.name)}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </div>
+              <div className="">
+                <button
+                  aria-label="Move Exercise Upwards"
+                  className={`${headerBtnClasses}`}
+                  onClick={() => moveExercise(workout?.name, index, "up")}
+                >
+                  <FontAwesomeIcon icon={faArrowUp} />
+                </button>
+              </div>
+              <div className="">
+                <button
+                  aria-label="Move Exercise Downwards"
+                  className={`${headerBtnClasses}`}
+                  onClick={() => moveExercise(workout?.name, index, "down")}
+                >
+                  <FontAwesomeIcon icon={faArrowDown} />
+                </button>
+              </div>
             </div>
-            <div className="">
-              <button
-                aria-label="Move Exercise Upwards"
-                className={`${headerBtnClasses}`}
-                onClick={() => moveExercise(workout?.name, index, "up")}
-              >
-                <FontAwesomeIcon icon={faArrowUp} />
-              </button>
-            </div>
-            <div className="">
-              <button
-                aria-label="Move Exercise Downwards"
-                className={`${headerBtnClasses}`}
-                onClick={() => moveExercise(workout?.name, index, "down")}
-              >
-                <FontAwesomeIcon icon={faArrowDown} />
-              </button>
+
+            <div className="text-xs text-start mt-1 no-underline not-italic h-5">
+              {exerciseComplete ? (
+                <>
+                  <span>Last completed: </span>
+                  <span className="text-base-content">{lastCompleted}</span>
+                </>
+              ) : null}
             </div>
           </div>
         }
       >
-        <Exercise exercise={exercise} workoutName={workout.name} />
+        <Exercise exercise={exercise} workout={workout} />
       </Collapse>
     );
   });

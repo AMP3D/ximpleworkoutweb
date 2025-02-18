@@ -1,24 +1,32 @@
-import { IExercise } from "../models";
-import { FC, useMemo, useState } from "react";
-import Set from "./Set";
-import { convertToSetId } from "../helpers/stringHelper";
+import React, { FC, useMemo, useState } from "react";
+import {
+  convertToSetId,
+  convertToWorkoutSetId,
+  getLastCompletedSet,
+} from "../helpers";
 import { getTotalVolume } from "../helpers/weightHelper";
+import { IExercise, IWorkout } from "../models";
+import { MoveDirection } from "../models/Move";
 import { useSetStore } from "../store/setStore";
-import React from "react";
-import AddEditButton from "./ui/AddEditButton";
+import { useWorkoutStore } from "../store/workoutStore";
 import AddEditSet from "./AddEditSet";
 import RemoveSet from "./RemoveSet";
-import { MoveDirection } from "../models/Move";
-import { useWorkoutStore } from "../store/workoutStore";
+import Set from "./Set";
+import AddEditButton from "./ui/AddEditButton";
 
 export type ExerciseProps = {
   exercise: IExercise;
-  workoutName: string;
+  workout: IWorkout;
 };
 
 const ExerciseComponent: FC<ExerciseProps> = (props) => {
-  const { exercise, workoutName } = props;
-  const { completedSetIds, setCompletedSetId } = useSetStore();
+  const { exercise, workout } = props;
+  const {
+    completedSetIds,
+    lastCompletedSets,
+    setCompletedSetId,
+    updateLastCompleted,
+  } = useSetStore();
   const { copySet, moveSet } = useWorkoutStore();
 
   const [editSetIndex, setEditSetIndex] = useState<number>();
@@ -31,7 +39,7 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
   };
 
   const onCopySet = (setIndex: number) => {
-    copySet(workoutName, exercise?.name, setIndex);
+    copySet(workout.name, exercise?.name, setIndex);
   };
 
   const onEditSet = (setIndex: number) => {
@@ -40,7 +48,7 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
   };
 
   const onMoveSet = (setIndex: number, direction: MoveDirection) => {
-    moveSet(workoutName, exercise?.name, setIndex, direction);
+    moveSet(workout.name, exercise?.name, setIndex, direction);
   };
 
   const onRemoveSet = (setIndex: number) => {
@@ -58,11 +66,28 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
   );
 
   const sets = exercise?.sets.map((set, index) => {
-    const setId = convertToSetId(workoutName, exercise?.name, index);
+    const setId = convertToSetId(workout.name, exercise?.name, index);
     const isCompleted = !!completedSetIds[setId];
+    let lastCompleted: string | undefined;
+
+    if (isCompleted) {
+      lastCompleted = getLastCompletedSet(
+        workout,
+        exercise,
+        index,
+        lastCompletedSets
+      );
+    }
 
     const onComplete = () => {
       setCompletedSetId(setId, !isCompleted);
+
+      const workoutSetId = convertToWorkoutSetId(
+        workout.name,
+        exercise?.name,
+        index
+      );
+      updateLastCompleted(workoutSetId);
     };
 
     const bgColor = isCompleted
@@ -75,14 +100,17 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
         key={`set-${index}`}
       >
         <Set
-          set={set}
-          setIndex={index}
+          completedSetIds={completedSetIds}
           isCompleted={isCompleted}
+          lastCompleted={lastCompleted}
           onComplete={onComplete}
           onCopySet={onCopySet}
           onEditSet={onEditSet}
           onMoveSet={onMoveSet}
           onRemoveSet={onRemoveSet}
+          set={set}
+          setId={setId}
+          setIndex={index}
         />
       </div>
     );
@@ -99,7 +127,7 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
           editSetIndex={editSetIndex}
           exerciseName={exercise?.name}
           set={editSet}
-          workoutName={workoutName}
+          workoutName={workout.name}
         />
       )}
 
@@ -108,7 +136,7 @@ const ExerciseComponent: FC<ExerciseProps> = (props) => {
           onClose={() => setRemoveSetIndex(undefined)}
           exerciseName={exercise?.name}
           setIndex={removeSetIndex}
-          workoutName={workoutName}
+          workoutName={workout.name}
         />
       )}
 
