@@ -1,6 +1,6 @@
-import { FC, useEffect, useRef } from "react";
+import { faCheck, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FC, useEffect, useRef } from "react";
 
 export type ModalProps = {
   children: React.ReactNode;
@@ -81,7 +81,7 @@ const Modal: FC<ModalProps> = (props) => {
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
 
-              {
+              {onModalConfirm && (
                 <button
                   className="btn btn-success mx-9 text-white"
                   disabled={disableConfirmButton}
@@ -96,7 +96,7 @@ const Modal: FC<ModalProps> = (props) => {
                     </>
                   )}
                 </button>
-              }
+              )}
 
               <button
                 className="btn btn-secondary text-white"

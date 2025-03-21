@@ -1,16 +1,18 @@
-import { FC, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
+  faClipboard,
   faFileDownload,
   faFileUpload,
   faRefresh,
 } from "@fortawesome/free-solid-svg-icons";
-import Drawer from "./ui/Drawer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FC, useState } from "react";
+import { useAppStore } from "../store/appStore";
 import ExportFileModal from "./ExportFileModal";
 import ImportFileModal from "./ImportFileModal";
+import LogModal from "./LogModal";
 import SampleFileReloadModal from "./SampleFileReloadModal";
-import { useAppStore } from "../store/appStore";
+import Drawer from "./ui/Drawer";
 
 export type NavBarProps = {
   onReloadClick: () => void;
@@ -24,6 +26,7 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
   const [showImportModal, setShowImportModal] = useState(false);
   const [showSampleFileReloadModal, setShowSampleFileReloadModal] =
     useState(false);
+  const [showLogModal, setShowLogModal] = useState(false);
 
   return (
     <>
@@ -41,6 +44,8 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
           onModalClose={() => setShowSampleFileReloadModal(false)}
         />
       )}
+
+      {showLogModal && <LogModal onModalClose={() => setShowLogModal(false)} />}
 
       <div
         className={`grid grid-flow-col bg-primary p-2 text-xl top-0 left-0 right-0 z-[999] border-b ${
@@ -72,6 +77,13 @@ const NavBar: FC<NavBarProps> = (props: NavBarProps) => {
                 <button onClick={() => setShowSampleFileReloadModal(true)}>
                   <FontAwesomeIcon icon={faRefresh} />
                   <span className="btm-nav-label">Reload Sample File</span>
+                </button>
+              </li>
+
+              <li>
+                <button onClick={() => setShowLogModal(true)}>
+                  <FontAwesomeIcon icon={faClipboard} />
+                  <span className="btm-nav-label">Log</span>
                 </button>
               </li>
             </ul>
