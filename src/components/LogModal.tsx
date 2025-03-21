@@ -14,12 +14,13 @@ const LogModal: FC<LogModalProps> = (props: LogModalProps) => {
   );
 
   // Filter entries for selected date
-  const filteredEntries = Object.keys(lastCompletedSets).filter((key) => {
-    const entry = lastCompletedSets[key];
-    const entryDate = dayjs(entry).format("YYYY-MM-DD");
-
-    return entryDate === selectedDate;
-  });
+  const filteredEntries = Object.entries(lastCompletedSets).filter(
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    ([_, entry]) => {
+      const entryDate = dayjs(entry).format("YYYY-MM-DD");
+      return entryDate === selectedDate;
+    }
+  );
 
   return (
     <Modal onModalClose={props.onModalClose} preventDefault={true} title="Log">
