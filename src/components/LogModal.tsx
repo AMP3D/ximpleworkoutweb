@@ -41,8 +41,14 @@ const LogModal: FC<LogModalProps> = (props: LogModalProps) => {
           />
         </div>
 
+        {!filteredEntries.length && (
+          <div className="flex justify-center">
+            <p className="text-lg">No entries for this date</p>
+          </div>
+        )}
+
         {!!filteredEntries.length && (
-          <div className="overflow-x-auto max-h-[calc(60vh)] overflow-y-auto">
+          <div className="overflow-x-auto max-h-[calc(50vh)] overflow-y-auto">
             <table className="table w-full">
               <thead>
                 <tr className="bg-secondary text-primary-content ">
