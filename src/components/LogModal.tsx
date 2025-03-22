@@ -29,6 +29,13 @@ const LogModal: FC<LogModalProps> = (props: LogModalProps) => {
       return dateA.isBefore(dateB) ? -1 : 1;
     });
 
+  const totalDuration = filteredEntries.length
+    ? dayjs(filteredEntries[filteredEntries.length - 1][1]).diff(
+        dayjs(filteredEntries[0][1]),
+        "minutes"
+      )
+    : 0;
+
   return (
     <Modal onModalClose={props.onModalClose} preventDefault={true} title="Log">
       <div className="flex flex-col gap-4">
@@ -48,27 +55,35 @@ const LogModal: FC<LogModalProps> = (props: LogModalProps) => {
         )}
 
         {!!filteredEntries.length && (
-          <div className="overflow-x-auto max-h-[calc(50vh)] overflow-y-auto">
-            <table className="table w-full">
-              <thead>
-                <tr className="bg-secondary text-primary-content ">
-                  <th className="text-base">Exercise</th>
-                  <th className="text-base">Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredEntries.map(([key, entry], index) => (
-                  <tr
-                    key={index}
-                    className={index % 2 === 0 ? "bg-primary" : "bg-secondary"}
-                  >
-                    <td className="font-medium">{key}</td>
-                    <td>{entry}</td>
+          <>
+            <div className="flex justify-center">
+              <p className="text-sm">Total Duration: {totalDuration} minutes</p>
+            </div>
+
+            <div className="overflow-x-auto max-h-[calc(50vh)] overflow-y-auto">
+              <table className="table w-full">
+                <thead>
+                  <tr className="bg-secondary text-primary-content ">
+                    <th className="text-base">Exercise</th>
+                    <th className="text-base">Details</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {filteredEntries.map(([key, entry], index) => (
+                    <tr
+                      key={index}
+                      className={
+                        index % 2 === 0 ? "bg-primary" : "bg-secondary"
+                      }
+                    >
+                      <td className="font-medium">{key}</td>
+                      <td>{entry}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
     </Modal>
